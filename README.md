@@ -1,20 +1,16 @@
-# 🌍SusTrack
-
-Public SDGs Activity Monitoring Platform
-
 <p align="center">
+  <h1>🌍SusTrack</h1>
+  <p>Public SDGs Activity Monitoring Platform</p>
   <img src="./.github/sdgs-banner.png" alt="SDGs Banner">
 </p>
 
 ## ⚙️ Setup
 
-Install dependencies
+### 📂Install dependencies
 
 ```sh
 pnpm install
 ```
-
-## Start
 
 ### 🛠️ Development
 
