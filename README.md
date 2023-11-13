@@ -1,8 +1,8 @@
-<p align="center">
+<div align="center">
   <h1>🌍SusTrack</h1>
   <p>Public SDGs Activity Monitoring Platform</p>
   <img src="./.github/sdgs-banner.png" alt="SDGs Banner">
-</p>
+</div>
 
 ## ⚙️ Setup
 
