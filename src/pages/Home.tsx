@@ -4,7 +4,7 @@ import React from "react";
 const Home: React.FC = () => {
   return (
     <>
-      <h1 className="text-xl">Halo Everyneone</h1>
+      <h1 className="text-xl">💀This is geh oam's home</h1>
       <Map />
     </>
   );
