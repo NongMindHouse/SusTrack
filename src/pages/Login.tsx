@@ -1,11 +1,14 @@
-import React from 'react'
+import LoginForm from "@/components/Login/LoginForm";
+import React from "react";
 
-type Props = {}
-
-const Login = (props: Props) => {
+const Login: React.FC = () => {
   return (
-    <div>Login</div>
-  )
-}
+    <div className="bg-gray-50 flex items-center flex-col relative">
+      <section className="w-full bg-hero bg-cover bg-center py-24 h-screen">
+        <LoginForm />
+      </section>
+    </div>
+  );
+};
 
-export default Login
+export default Login;
