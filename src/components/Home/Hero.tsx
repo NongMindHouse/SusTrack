@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 
 const Hero: React.FC = () => {
   return (
-    <div className="bg-gray-50 flex items-center">
-      <section className="w-full bg-hero bg-cover bg-center py-32 h-screen">
+    <div className="bg-gray-50 flex items-center flex-col relative">
+      <section className="w-full bg-hero bg-cover bg-center py-24 h-screen">
           <div className="container mx-auto text-center text-white grid grid-cols-[25%_45%_30%]">
             <div className="h-4/5 flex items-center col-span-1 justify-end overflow-clip">
               <img src="images/mascot/mascot-laptop-right.png" className="h-full"></img>
@@ -26,6 +26,7 @@ const Hero: React.FC = () => {
             </div>
           </div>
       </section>
+      <div className="text-sm bg-gradient-to-b from-transparent to-navy w-full absolute bottom-0 h-20"></div>
     </div>
   );
 };
