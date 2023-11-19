@@ -1,10 +1,10 @@
 const SDGs = () => {
   return (
     <div className="bg-navy">
-      <div className="sm:flex justify-center p-6">
+      <div className="sm:flex text-center justify-center items-center gap-x-10 p-6">
         {/* SDGs */}
         <div className="text-white w-[500px]">
-          <h1 className="text-3xl font-bold p-4 w-[400px]">SDGs คืออะไร?</h1>
+          <h1 className="text-3xl font-bold p-4">SDGs คืออะไร?</h1>
           <p>
             เป้าหมายการพัฒนาที่ยั่งยืน (Sustainable Development Goals: SDGs) เป็นชุดเป้าหมายการพัฒนาระดับโลกหลังปี 2015
             ที่ได้รับการรับรองจาก 193 ประเทศสมาชิกขององค์การสหประชาชาติ เมื่อวันที่ 25 กันยายน ค.ศ. 2015
@@ -22,7 +22,9 @@ const SDGs = () => {
           </p>
         </div>
         {/* Image */}
-        <img src="/images/sdgs-circle.png" className="" alt="" />
+        <div className="flex justify-center pt-6">
+          <img src="/images/sdgs-circle.png" className="w-60 h-60 md:w-80 md:h-80 text-center" alt="" />
+        </div>
       </div>
     </div>
   );
