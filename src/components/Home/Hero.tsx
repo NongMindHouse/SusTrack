@@ -4,14 +4,14 @@ const Hero: React.FC = () => {
   return (
     <div className="bg-gray-50 relative">
       <section className="w-full bg-hero bg-cover bg-center py-24 overflow-hidden h-[130vh] xl:h-screen">
-          <div className="container flex items-center justify-center gap-[50px] xl:gap-[100px] flex-wrap h-[400px] mx-auto">
+          <div className="container flex items-center justify-center gap-y-[50px] gap-x-[100px] flex-wrap h-[400px] mx-auto">
             <div className="flex items-center">
               {/* Mascot */}
               <img src="images/mascot/mascot-laptop-right.png" className="w-[120px] sm:w-[200px]"></img>
               {/* SusTrack */}
               <div>
                 <h1 className="text-lightblue font-bold text-[60px] sm:text-[100px] md:text-[120px] drop-shadow-[3px_3px_0px_rgba(0,0,0,0.75)] sm:drop-shadow-[4px_4px_0px_rgba(0,0,0,0.75)]">SusTrack</h1>
-                <p className="text-l sm:text-xl text-navy font-extrabold">Public SDGs Activity Monitoring Platform</p>
+                <p className="text-l sm:text-xl text-navy font-bold">Public SDGs Activity Monitoring Platform</p>
               </div>
             </div>
             {/* Box */}
