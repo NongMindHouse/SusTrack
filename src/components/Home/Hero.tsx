@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Hero: React.FC = () => {
   return (
     <div className="bg-gray-50 relative">
-      <section className="w-full bg-hero bg-cover bg-center py-24 overflow-hidden h-[130vh] xl:h-screen">
+      <section className="w-full bg-hero bg-cover bg-center py-40 overflow-hidden h-[130vh] xl:h-screen">
           <div className="container flex items-center justify-center gap-y-[50px] gap-x-[100px] flex-wrap h-[400px] mx-auto">
             <div className="flex items-center">
               {/* Mascot */}
