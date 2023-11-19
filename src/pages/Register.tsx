@@ -1,11 +1,13 @@
-import React from 'react'
+import RegisForm from "@/components/Register/RegisForm";
 
-type Props = {}
-
-const Register = (props: Props) => {
+const Register = () => {
   return (
-    <div>Register</div>
-  )
-}
+    <div className="bg-gray-50 flex items-center flex-col relative">
+      <section className="w-full bg-hero bg-cover bg-center py-24 h-screen">
+        <RegisForm />
+      </section>
+    </div>
+  );
+};
 
-export default Register
+export default Register;
