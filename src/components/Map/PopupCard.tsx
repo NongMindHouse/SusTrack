@@ -1,32 +1,32 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-type PropsData = {
+type PopupInfo = {
   title: string;
   image: string;
   desc: string;
 };
 
-const PopupCard: React.FC<PropsData> = ({ title, image, desc }) => {
+const PopupCard: React.FC<PopupInfo> = ({ title, image, desc }) => {
   return (
-    <div className="max-w-lg pt-2">
-      <img className="rounded-t-lg" src={image} alt="" />
-      <div className="flex justify-center">
-        {/* Left */}
-        <div className="p-2 w-1/2 ">
-          {/* <img className="rounded-full" src={image} alt="" /> */}
-          <img className="rounded-full" src="/images/sdg-2.png" alt="" />
-          <img className="rounded-full" src="/images/sdg-3.png" alt="" />
-        </div>
-        {/* Right */}
-        <div className="p-5 w-1/2">
-          <h5 className="mb-2 text-2xl font-bold tracking-tight text-black ">{title}</h5>
-          <p className="mb-3 font-normal text-black ">{desc}</p>
-          <a
-            href="#"
-            className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
+    <div className="max-w-lg">
+      <div className="overflow-hidden">
+        <img className="rounded-t-lg w-full h-40 object-cover" src={image} alt="banner" />
+      </div>
+
+      {/* Text */}
+      <div className="p-3 text-base">
+        <h5 className="mb-2 text-xl font-bold tracking-tight text-black ">{title}</h5>
+        <p className="mb-3 text-black whitespace-nowrap overflow-hidden text-ellipsis">{desc}</p>
+        <p>วันที่เริ่มโครงการ: </p>
+        <p>โดย: </p>
+        <div className="text-right">
+          <Link
+            to=""
+            className="inline-flex items-end px-3 py-1 font-medium text-center text-white bg-lightblue rounded-full hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
           >
-            See more..
-          </a>
+            ดูเพิ่มเติม..
+          </Link>
         </div>
       </div>
     </div>
