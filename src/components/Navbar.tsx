@@ -46,7 +46,7 @@ const Navbar: React.FC<Props> = ({}) => {
                 className={
                   pathname == nav.path
                     ? "block py-1 px-4 text-white rounded-2xl bg-lightblue"
-                    : "block py-1 px-4 text-white rounded-2xl hover:bg-lightblue"
+                    : "block py-1 px-4 text-white rounded-2xl hover:bg-lightblue transition-all duration-100 ease-linear hover:scale-105"
                 }
                 key={nav.path}
                 to={nav.path}
@@ -55,7 +55,7 @@ const Navbar: React.FC<Props> = ({}) => {
               </Link>
             ))}
             <Link
-              className=" text-gray-800 hover:bg-lightblue hover:text-white px-3 py-1 bg-gray-200 rounded-full transition ease-linear duration-200"
+              className=" text-gray-800 hover:bg-lightblue hover:text-white px-3 py-1 bg-gray-200 rounded-full transition ease-linear duration-200 hover:scale-105"
               to="/login"
             >
               Login

@@ -5,7 +5,7 @@ const SDGs = () => {
         {/* SDGs */}
         <div className="text-white w-full lg:w-[700px]">
           <h1 className="text-5xl font-bold py-4">
-            <img src="/images/sdgs-circle.png" className="inline w-[50px] mb-2 mr-4"></img>
+            <img src="/images/sdgs-circle-no-text.png" className="inline w-[50px] mb-2 mr-4 animate-[spin_30s_linear_infinite]"></img>
             SDGs คืออะไร?
           </h1>
           <p className="leading-8 text-[18px]">
@@ -26,7 +26,7 @@ const SDGs = () => {
         </div>
         {/* Image */}
         <div className="flex justify-center pt-5">
-          <img src="/images/sdgs-circle.png" className="w-[300px] text-center" alt="" />
+          <img src="/images/sdgs-circle.png" className="w-[300px] text-center animate-[spin_30s_linear_infinite]" alt="" />
         </div>
       </div>
       <div className="text-right">
