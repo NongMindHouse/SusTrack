@@ -11,8 +11,8 @@ const RecentProject = () => {
       </div>
       {/* Button */}
       <div className="text-center">
-        <Link to="/projects" className="bg-navy text-white py-1 px-3 rounded-full">
-          &gt;&gt; อ่านทั้งหมด &lt;&lt;
+        <Link to="/projects" className="bg-navy text-white py-1 px-5 rounded-full hover:bg-blue-900 transition ease-linear duration-100 hover:scale-105 block w-fit mx-auto">
+          อ่านข่าวกิจกรรมทั้งหมด
         </Link>
       </div>
     </div>
