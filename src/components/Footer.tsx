@@ -4,9 +4,9 @@ const Footer = () => {
   return (
     <div className="bg-navy w-full py-5 text-white flex flex-col lg:flex-row items-center justify-center gap-6">
       <div className="flex items-center">
-        <img className="w-[80px] sm:w-[150px]" src="images/sdgs-circle.png"></img>
-        <img className="w-[200px] md:w-[300px]" src="images/cityhack-logo.png"></img>
-        <img className="w-[50px] sm:w-[100px]" src="images/mascot/mascot-thumbup-right.png"></img>
+        <img className="w-[80px] sm:w-[150px]" src="images/sdgs-circle.png" />
+        <img className="w-[200px] md:w-[300px]" src="images/cityhack-logo.png" />
+        <img className="w-[50px] sm:w-[100px]" src="images/mascot/mascot-thumbup-right.png" />
       </div>
 
       <div className="flex sm:gap-x-10 justify-center">

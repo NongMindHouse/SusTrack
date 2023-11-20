@@ -3,12 +3,14 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import NotFound from "./pages/404";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
+
 import Map from "./pages/Map";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Projects from "./pages/Projects/Projects";
 import ProjectDetail from "./pages/Projects/ProjectDetail";
-const Home = lazy(() => import("@/pages/Home"));
+import Home from "./pages/Home";
 
 const App: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
@@ -22,6 +24,7 @@ const App: React.FC = () => {
     <div className="font-Noto-Sans">
       <BrowserRouter basename="/">
         <Navbar />
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
