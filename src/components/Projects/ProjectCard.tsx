@@ -12,7 +12,7 @@ const ProjectCard: React.FC<Props> = ({ id, image, title, desc }) => {
 
   return (
     <div
-      className="max-w-sm bg-gray-100 shadow rounded-xl hover:cursor-pointer hover:border-2 hover:border-lightblue hover:scale-[1.03] transition-all duration-100 ease-linear hover:shadow-md"
+      className="max-w-sm bg-gray-100 shadow rounded-xl hover:cursor-pointer hover:border-2 hover:border-lightblue hover:shadow-md"
       onClick={Goto}
     >
       <img className="rounded-t-xl" src={image} alt="" />

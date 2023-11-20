@@ -61,7 +61,7 @@ const RegisForm: React.FC<Props> = () => {
 
                 <div className="flex items-baseline justify-center my-1">
                   <button
-                    className="px-6 py-2 mt-4 text-white font-semibold bg-navy rounded-full hover:bg-lightblue hover:text-white transition ease-linear duration-200"
+                    className="px-6 py-2 mt-4 text-white font-semibold bg-navy rounded-full hover:bg-lightblue hover:text-white hover:scale-110 transition ease-linear duration-200"
                     type="submit"
                     onClick={handleRegis}
                   >
@@ -71,7 +71,7 @@ const RegisForm: React.FC<Props> = () => {
 
                 <div className="text-center">
                   <button
-                    className="px-4 py-3 mt-4 mr-1 text-black font-medium bg-gray-200 rounded-full hover:bg-lightblue hover:text-white transition ease-linear duration-00"
+                    className="px-4 py-3 mt-4 mr-1 text-black font-medium bg-gray-200 rounded-full hover:bg-lightblue hover:text-white hover:scale-110 transition ease-linear duration-200"
                     type="submit"
                     onClick={(e) => handleRegis(e)}
                   >

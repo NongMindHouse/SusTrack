@@ -58,7 +58,7 @@ const Navbar: React.FC<Props> = ({}) => {
               className=" text-gray-800 hover:bg-lightblue hover:text-white px-3 py-1 bg-gray-200 rounded-full transition ease-linear duration-200 hover:scale-105"
               to="/login"
             >
-              Login
+              เข้าสู่ระบบ
             </Link>
           </ul>
         </div>
