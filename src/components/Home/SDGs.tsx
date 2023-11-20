@@ -23,14 +23,18 @@ const SDGs = () => {
             ซึ่งมีจำนวนทั้งหมด 169 เป้าหมายย่อย และพัฒนา ตัวชี้วัด (Indicators) จำนวน 232 ตัวชี้วัด (ทั้งหมด 244
             ตัวชี้วัดแต่มีตัวที่ซ้ำ 12 ตัว) เพื่อติดตามความก้าวหน้าของเป้าหมายย่อยดังกล่าว
           </p>
-          <p className="pt-10 text-right">
-          <a href="https://sdgs.un.org/goals" target="_blank" className="underline pr-10">ศึกษาเพิ่มเติม →</a>
-          </p>
         </div>
         {/* Image */}
-        <div className="flex justify-center">
+        <div className="flex justify-center pt-5">
           <img src="/images/sdgs-circle.png" className="w-[300px] text-center" alt="" />
         </div>
+      </div>
+      <div className="text-right">
+        <p className="pt-10 text-white">
+          <a href="https://sdgs.un.org/goals" target="_blank" className="underline pr-10">
+            ศึกษาเพิ่มเติม →
+          </a>
+        </p>
       </div>
     </div>
   );

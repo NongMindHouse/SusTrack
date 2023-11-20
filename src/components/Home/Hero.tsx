@@ -15,13 +15,13 @@ const Hero: React.FC = () => {
               </div>
             </div>
             {/* Box */}
-            <div className="bg-gray-50/70 w-[400px] h-[300px] text-center rounded-2xl flex-col shadow-xl">
+            <div className="bg-gray-50/70 w-[400px] h-[320px] text-center rounded-2xl flex-col shadow-xl">
               <p className="text-xl text-gray-900 font-bold mt-16 mb-10 mx-10">ระบบติดตามกิจกรรมสาธารณะที่สอดคล้องกับเป้าหมายการพัฒนาที่ยั่งยืน</p>
               <Link to="/map" className="block bg-navy text-white rounded-full w-[300px] mx-auto py-2">
                 ดูแผนที่กิจกรรม SDGs
               </Link>
-              <p>หรือ</p>
-              <Link to="/map" className="block bg-navy text-white rounded-full w-[300px] mx-auto py-2">
+              <p className="py-2">หรือ</p>
+              <Link to="/result" className="block bg-navy text-white rounded-full w-[300px] mx-auto py-2">
                 รายงานผลการจัดกิจกรรม SDGs
               </Link>
             </div>
