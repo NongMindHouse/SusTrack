@@ -44,7 +44,7 @@ const ProjectDetail: React.FC = () => {
 
         {/* Title */}
         <div className="flex flex-col py-5 px-10 lg:p-10">
-          <h1 className="text-3xl font-extrabold">Title is Here!</h1>
+          <h1 className="text-3xl font-extrabold">Title is Here! {params.id}</h1>
           <div className="font-bold">องค์การบริหารส่วนตำบูด</div>
           <div className="flex">
             <p>วันที่เริ่มโครงการ: 99 Oct,2023</p>
