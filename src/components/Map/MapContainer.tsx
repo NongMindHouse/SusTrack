@@ -1,7 +1,13 @@
 import React, { useState } from "react";
-import ReactMapGL, { Marker, NavigationControl, Popup } from "react-map-gl";
-import "mapbox-gl/dist/mapbox-gl.css";
+import ReactMapGL, { NavigationControl, Popup } from "react-map-gl";
 import PopupCard from "./PopupCard";
+import SearchMap from "./SearchMap";
+import Sidebar from "./Sidebar";
+import Markers, { Project } from "./Markers";
+
+import "mapbox-gl/dist/mapbox-gl.css";
+import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css";
+import "./Popup.css";
 
 const mapboxAccessToken = import.meta.env.VITE_MAPBOX_ACCESS_TOKEN;
 
@@ -12,14 +18,14 @@ const MapContainer: React.FC = () => {
     zoom: 16,
   });
 
-  const markers = [
-    { latitude: 13.6504405, longitude: 100.4946602, title: "CPE" },
-    { latitude: 13.6512402, longitude: 100.4936268, title: "San Francisco" },
-    { latitude: 13.6506018, longitude: 100.4932941, title: "San Francisco" },
-  ];
+  const [popupInfo, setPopupInfo] = useState<Project>();
+
+  const handleClickPopup = (project: Project) => {
+    setPopupInfo(project);
+  };
 
   return (
-    <div style={{ height: "600px", width: "100%" }}>
+    <div style={{ height: "100%", width: "100%" }}>
       <ReactMapGL
         {...viewport}
         mapboxAccessToken={mapboxAccessToken}
@@ -28,23 +34,22 @@ const MapContainer: React.FC = () => {
           setViewport(evt.viewState);
         }}
       >
-        {markers.map((marker, index) => (
-          <Marker key={index} latitude={marker.latitude} longitude={marker.longitude}>
-            <div>
-              <span role="img" aria-label="marker" style={{ fontSize: "24px" }}>
-                📍
-              </span>
-            </div>
-          </Marker>
-        ))}
-        <Popup anchor="top" latitude={13.6504405} longitude={100.4946602} maxWidth="300px">
-          <PopupCard
-            title="Test Popup"
-            image="https://fastly.picsum.photos/id/658/536/354.jpg?hmac=lJsBY1i-cotZRX7y_Gs4NWkIaCtyhT3HhAeLnRpra8k"
-            desc="some desc"
-          />
-        </Popup>
+        <Markers handleClickPopup={handleClickPopup} />
+
+        {popupInfo && (
+          <Popup
+            anchor="bottom"
+            longitude={Number(popupInfo.longitude)}
+            latitude={Number(popupInfo.latitude)}
+            onClose={() => setPopupInfo(undefined)}
+          >
+            <PopupCard title={popupInfo.title} image={popupInfo.image} desc={popupInfo.desc} />
+          </Popup>
+        )}
+
         <NavigationControl position="bottom-right" />
+        <SearchMap mapboxAccessToken={mapboxAccessToken} position="top-left" />
+        <Sidebar />
       </ReactMapGL>
     </div>
   );

@@ -1,0 +1,13 @@
+@media (min-width: 640px) {
+  .sideBar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 300px;
+    background-color: rgba(251, 251, 251, 0.5);
+    padding: 20px;
+    box-shadow: -5px 0 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+  }
+}
