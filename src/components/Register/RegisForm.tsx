@@ -1,10 +1,20 @@
+import { auth, googleProvider } from "@/lib/firebase";
+import { signInWithPopup } from "firebase/auth";
 import React from "react";
 
 type Props = {};
 
 const RegisForm: React.FC<Props> = () => {
+
   const handleRegis = (e: React.FormEvent<EventTarget>) => {
     e.preventDefault();
+  };
+
+  const handleGoogleLogin = async () => {
+    const result = await signInWithPopup(auth, googleProvider);
+    const idToken = await result.user.getIdToken();
+    console.log(idToken);
+    
   };
 
   return (
@@ -73,7 +83,7 @@ const RegisForm: React.FC<Props> = () => {
                   <button
                     className="px-4 py-3 mt-4 mr-1 text-black font-medium bg-gray-200 rounded-full hover:bg-lightblue hover:text-white hover:scale-110 transition ease-linear duration-200"
                     type="submit"
-                    onClick={(e) => handleRegis(e)}
+                    onClick={handleGoogleLogin}
                   >
                     <img
                       src="images/google_logo.png"

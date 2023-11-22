@@ -1,3 +1,5 @@
+import { auth, googleProvider } from "@/lib/firebase";
+import { signInWithPopup } from "firebase/auth";
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -6,6 +8,13 @@ type Props = {};
 const LoginForm: React.FC<Props> = () => {
   const handleLogin = (e: React.FormEvent<EventTarget>) => {
     e.preventDefault();
+    console.log("login");
+  };
+
+  const handleGoogleLogin = async () => {
+    const result = await signInWithPopup(auth, googleProvider);
+    const idToken = await result.user.getIdToken();
+    console.log(idToken);
   };
 
   return (
@@ -16,7 +25,7 @@ const LoginForm: React.FC<Props> = () => {
             <h3 className="text-2xl font-bold text-center mt-3">
               ยินดีต้อนรับเข้าสู่ <span className="font-bold text-lightblue">SusTrack</span>
             </h3>
-            <form action="" onSubmit={handleLogin}>
+            <form onSubmit={handleLogin}>
               <div className="mt-4">
                 <div>
                   <label className="block font-medium">
@@ -68,7 +77,7 @@ const LoginForm: React.FC<Props> = () => {
                   <button
                     className="px-4 py-3 mt-4 mr-1 text-black font-medium bg-gray-200 rounded-3xl hover:bg-lightblue hover:text-white hover:scale-110 transition ease-linear duration-200"
                     type="submit"
-                    onClick={(e) => handleLogin(e)}
+                    onClick={handleGoogleLogin}
                   >
                     <img
                       src="images/google_logo.png"
