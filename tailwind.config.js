@@ -28,7 +28,7 @@ export default {
         sdg14: "#1F97D4",
         sdg15: "#59BA47",
         sdg16: "#136A9F",
-        sdg17: "#14496B"
+        sdg17: "#14496B",
       },
       backgroundImage: {
         hero: "url('/images/bangkok-map-blur.png')",

@@ -16,9 +16,8 @@
   }
 }
 
-@layer components{
-  .sdg-block{
+@layer components {
+  .sdg-block {
     @apply block w-[64px] h-[64px] rounded-sm p-2 m-1 hover:scale-105 transition duration-100 cursor-pointer;
   }
-
 }
