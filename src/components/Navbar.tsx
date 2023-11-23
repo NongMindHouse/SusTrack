@@ -25,8 +25,10 @@ const Navbar: React.FC<Props> = ({}) => {
 
   return (
     <nav className="bg-navy border-gray-200 dark:bg-gray-900 sticky top-0 z-50">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <div className="min-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Link to="/" className="pl-6 text-2xl text-white font-bold">
+          <img src="images/sdgs-circle-no-text.png" className="inline h-8"/>
+          <img src="images/mascot/mascot-laptop-right.png" className="inline h-10 mx-2"/>
           SusTrack
         </Link>
         {/* Bar3 */}
