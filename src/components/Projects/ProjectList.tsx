@@ -3,7 +3,7 @@ import ProjectCard from "./ProjectCard";
 
 type Props = {};
 
-const ProjectList = () => {
+const ProjectList:React.FC<Props> = () => {
   return (
     <div className="p-5 grid justify-center gap-y-6 lg:grid-cols-4 lg:gap-4 md:grid-cols-3 md:gap-3 sm:grid-cols-2 sm:gap-3">
       <ProjectCard
