@@ -30,7 +30,7 @@ const ProjectDetail: React.FC = () => {
           onClick={() => {
             navigate(-1);
           }}
-          className="absolute left-5 top-5 bg-white w-8 h-8 rounded hover:border hover:border-navy"
+          className="absolute left-5 top-5 bg-white w-8 h-8 rounded hover:drop-shadow-lg hover:scale-105 transition"
         >
           <img src="/icon/arrow_down.png" className="absolute left-2 top-3 w-4 rotate-90 drop-shadow-2xl" alt="arrow" />
         </button>
