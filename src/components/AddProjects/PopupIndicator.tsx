@@ -1,16 +1,43 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { sdgColorList } from "@/utils/sdgColors";
 
 type Props = {
   isOpen:boolean,
   activeTab:number,
+  onTabClick: (tabIndex: number) => void;
+  onClose: () => void; // Callback function to handle closing the popup
 };
 
-const PopupIndicator:React.FC<Props> = ({activeTab,isOpen}) => {
+const PopupIndicator:React.FC<Props> = ({activeTab,isOpen,onTabClick, onClose}) => {
   const Test = (i:number) => {
-    activeTab = i
+    onTabClick(i);
     console.log(activeTab)
   }
+
+  const handleOverlayClick = (event: React.MouseEvent<HTMLDivElement>) => {
+    const overlayElement = event.currentTarget;
+  
+    // Check if the clicked element is the overlay or its child elements
+    if (event.target === overlayElement) {
+      onClose();
+    }
+  };
+
+  const handleKeyDown = (event: KeyboardEvent) => {
+    if (event.key === "Escape" && isOpen) {
+      onClose();
+    }
+  };
+
+  useEffect(() => {
+    // Add event listener on mount
+    document.addEventListener("keydown", handleKeyDown);
+
+    // Remove event listener on unmount
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen]);
 
   return(
   <div
@@ -19,7 +46,9 @@ const PopupIndicator:React.FC<Props> = ({activeTab,isOpen}) => {
     visibility: isOpen ? "visible":"hidden"
   }}
   >
-    <div className="bg-[rgba(0,0,0,0.4)] w-full h-full flex justify-center items-center">
+    <div className="bg-[rgba(0,0,0,0.6)] w-full h-full flex justify-center items-center"
+          onClick={handleOverlayClick}
+    >
       <div className="md:w-[500px] lg:w-[800px] xl:w-[1000px] 2xl:w-[1400px]
       p-3 rounded-lg flex flex-col mt-20 relative"
       >

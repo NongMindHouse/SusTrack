@@ -17,6 +17,22 @@ const AddProjectMapContainer: React.FC = () => {
     zoom: 16,
   });
 
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState(0);
+
+  const handleSDGsClick = () => {
+    // Toggle the PopupIndicator when SDGs Div section is clicked
+    setIsPopupOpen(!isPopupOpen);
+  };
+
+  const handleTabClick = (tabIndex: number) => {
+    setActiveTab(tabIndex);
+  };
+
+  const handleClosePopup = () => {
+    setIsPopupOpen(false);
+  };
+
   return (
     <div style={{ height: "100%", width: "100%" }}>
       <ReactMapGL
@@ -29,9 +45,9 @@ const AddProjectMapContainer: React.FC = () => {
       >
         <NavigationControl position="bottom-right" />
         <SearchMap mapboxAccessToken={mapboxAccessToken} position="top-left" />
-        <AddProjectSidebar />
+        <AddProjectSidebar onSDGsClick={handleSDGsClick} />
       </ReactMapGL>
-      <PopupIndicator activeTab={0} isOpen={false}/>
+      <PopupIndicator isOpen={isPopupOpen} activeTab={activeTab} onTabClick={handleTabClick} onClose={handleClosePopup}/>
     </div>
   );
 };

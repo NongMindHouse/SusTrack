@@ -4,9 +4,12 @@ import { sdgColorList } from "@/utils/sdgColors";
 // import SDGFilter from "../Map/SDGFilter";
 // import ProjectCardMap from "../Map/ProjectCardMap";
 
-type Props = {};
+type Props = {
+  onSDGsClick: () => void;
+};
 
-const AddProjectSidebar: React.FC<Props> = () => {
+
+const AddProjectSidebar: React.FC<Props> = ({ onSDGsClick }) => {
   const [selectedSDGs, setSelectedSDGs] = useState<number[]>([]);
 
   const [imagePreview, setImagePreview] = useState<string | null>(null);
@@ -26,7 +29,6 @@ const AddProjectSidebar: React.FC<Props> = () => {
     }
   };
 
-
   const Test = (i: number) => {
     // Toggle Select
 
@@ -43,6 +45,11 @@ const AddProjectSidebar: React.FC<Props> = () => {
     console.log("Click", i);
   };
 
+  const handleSDGsClick = () => {
+    // Call the parent component's callback function
+    onSDGsClick();
+  };
+
   return (
     <div className="sideBar backdrop-blur-[6px]">
       <form>
@@ -54,7 +61,7 @@ const AddProjectSidebar: React.FC<Props> = () => {
         <label className="block font-medium mb-3 ">
           <p className="text-center">รูปภาพกิจกรรม</p>
 
-          <div className="bg-gray-200 rounded-md p-2 mt-1 hover:bg-gray-300 hover:scale-[1.03] transition duration-200">
+          <div className="bg-gray-200 rounded-md p-2 mt-1 hover:bg-gray-300 hover:scale-[1.02] transition duration-200">
               <input
                 id="upload"
                 type="file"
@@ -83,8 +90,11 @@ const AddProjectSidebar: React.FC<Props> = () => {
           </label>
         </div>
           {/* SDGs */}
-          <div className="bg-white p-4 rounded-md w-full text-center mt-2">
-            SDGs
+          <div className="bg-white p-4 rounded-md w-full text-center mt-2 hover:scale-[1.02] transition duration-200 hover:bg-gray-200"
+          onClick={handleSDGsClick}
+          style={{ cursor: "pointer" }}
+          >
+            <p className="text-center"> SDGs </p>
           </div>
         </div>
         {/* ACTIVITY NAME */}
