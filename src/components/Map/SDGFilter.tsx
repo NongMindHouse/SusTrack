@@ -13,6 +13,7 @@ const SDGFilter: React.FC<Props> = ({ handleClick, selectedSDG }) => {
       {sdgColorList.map((color, i: number) => (
         <div className="relative hover:scale-[1.07] transition
           duration-100 cursor-pointer"
+          key={i}
         >
           <p className="absolute left-2 top-1 text-white font-bold text-[14px]">
             {i+1}

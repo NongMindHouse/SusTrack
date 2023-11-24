@@ -28,10 +28,10 @@ const Sidebar: React.FC<Props> = () => {
     <div className="sideBar backdrop-blur-[6px]">
       <div className="pt-10 text-base">
         {/* SDGs Filter */}
-        <p className="text-l">ตัวกรองผลลัพธ์การค้นหา SDGs</p>
+        <p className="text-lg">ตัวกรองผลลัพธ์การค้นหา SDGs</p>
         <SDGFilter handleClick={Test} selectedSDG={selectedSDGs} />
         {/* Lastest News */}
-        <p className="text-l">ผลการค้นหา</p>
+        <p className="text-lg">ผลการค้นหา</p>
         <div className="bg-gray-100 mx-auto mb-5 p-5 rounded-lg flex flex-col
         gap-y-[10px] min-h-[360px]">
           <ProjectCardMap
