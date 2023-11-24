@@ -79,12 +79,9 @@ const PopupIndicator:React.FC<Props> = ({activeTab,isOpen}) => {
               {/* GOAL TEXT */}
               <div className="">
                 <p className="text-[28px] my-2">
-                  <label>
-                    <input type="checkbox"
-                    className="inline mr-4 scale-[1.75]"
-                    />
-                  </label>
-                  เป้าหมายที่ 1 ยุติความจนในทุกรูปแบบ
+                  <input type="checkbox" value="SDG1"
+                  className="w-7 h-7 mr-4 accent-green-600" />
+                  <p className="inline-block "> เป้าหมายที่ 1 ยุติความจนในทุกรูปแบบ </p>
                 </p>
               </div>
               {/* INDICATOR CONTAINER */}

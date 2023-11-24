@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, ChangeEvent } from "react";
 import "../Map/Sidebar.css";
 import { sdgColorList } from "@/utils/sdgColors";
 // import SDGFilter from "../Map/SDGFilter";
@@ -8,6 +8,25 @@ type Props = {};
 
 const AddProjectSidebar: React.FC<Props> = () => {
   const [selectedSDGs, setSelectedSDGs] = useState<number[]>([]);
+
+  const [imagePreview, setImagePreview] = useState<string | null>(null);
+
+  const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const fileInput = event.target as HTMLInputElement;
+    const file = fileInput.files?.[0];
+
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        setImagePreview(reader.result as string);
+      };
+      reader.readAsDataURL(file);
+    } else {
+      setImagePreview(null);
+    }
+  };
+
+
   const Test = (i: number) => {
     // Toggle Select
 
@@ -28,24 +47,32 @@ const AddProjectSidebar: React.FC<Props> = () => {
     <div className="sideBar backdrop-blur-[6px]">
       <form>
       <div className="pt-10 text-base flex flex-col">
-        <div className="flex gap-x-[20px] mb-3">
+        <div className="flex gap-x-[20px] mb-3 flex-col">
         {/* PHOTOS */}
         <div className="bg-white rounded-md p-4">
-        <label className="block font-medium mb-3">
-          รูปภาพกิจกรรม
-          <label>
+
+
+        <label className="block font-medium mb-3 ">
+          <p className="text-center">รูปภาพกิจกรรม</p>
+          <label className="flex flex-col items-center">
             <input
               type="file"
               accept="image/*"
               placeholder="กิจกรรมรณรงค์การแยกขยะก่อนทิ้ง"
               className="w-full pt-2 mt-2 rounded-md"
               required
+              onChange={handleFileChange}
             />
           </label>
         </label>
+        {imagePreview && (
+                <div className="mt-2">
+                  <img src={imagePreview} alt="Preview" className="w-full rounded-md" />
+                </div>
+              )}
         </div>
           {/* SDGs */}
-          <div className="bg-white p-4 rounded-md w-1/2 text-center">
+          <div className="bg-white p-4 rounded-md w-full text-center mt-2">
             SDGs
           </div>
         </div>
