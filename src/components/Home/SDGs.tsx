@@ -1,7 +1,42 @@
+import { sdgColorList } from "@/utils/sdgColors";
+import React from "react";
+import { Link} from "react-router-dom";
+
+const GoalLinks:React.FC = () =>{
+  return (
+    <div className="w-[500px] flex flex-wrap">
+      {sdgColorList.map((color, i: number) => (
+        <Link className="relative hover:scale-[1.07] transition
+          duration-100 cursor-pointer"
+          to={`https://sdgs.un.org/goals/goal${i+1}`}
+          target="_blank"
+        >
+          <img
+            key={i}
+            src={`/images/sdgs/sdg-${i + 1}.svg`}
+            className = "block w-[80px] h-[80px] rounded-sm p-3 m-1"
+            // style={{ backgroundColor: color, opacity: 0.2 }}
+            style={{
+              backgroundColor: color,
+              // opacity: selectedSDG.includes(i) ? 1 : 0.2,
+              // transition:'opacity 0.1s ease-in-out',
+              // filter: selectedSDG.includes(i) ? 'none' : 'grayscale(60%)'
+            }}
+            alt={`SDG ${i}`}
+          />
+          <p className="absolute left-2 top-1 text-white font-bold text-[14px]">
+            {i+1}
+          </p>
+        </Link>
+      ))}
+    </div>
+  );
+}
+
 const SDGs = () => {
   return (
     <div className="bg-navy py-12">
-      <div className="lg:flex justify-center items-center gap-x-10 p-6 ">
+      <div className="lg:flex justify-center items-center gap-x-16 p-6 ">
         {/* SDGs */}
         <div className="text-white w-full lg:w-[700px]">
           <h1 className="text-5xl font-bold py-4">
@@ -26,7 +61,8 @@ const SDGs = () => {
         </div>
         {/* Image */}
         <div className="flex justify-center pt-5">
-          <img src="/images/sdgs-circle.png" className="w-[300px] text-center animate-[spin_30s_linear_infinite]" alt="" />
+          {/* <img src="/images/sdgs-circle.png" className="w-[300px] text-center animate-[spin_30s_linear_infinite]" alt="" /> */}
+          <GoalLinks/>
         </div>
       </div>
       <div className="text-right">
