@@ -21,7 +21,6 @@ const AddProjectMapContainer: React.FC = () => {
   const [activeTab, setActiveTab] = useState(0);
 
   const handleSDGsClick = () => {
-    // Toggle the PopupIndicator when SDGs Div section is clicked
     setIsPopupOpen(!isPopupOpen);
   };
 
