@@ -9,6 +9,7 @@ import Map from "./pages/Map";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Projects from "./pages/Projects/Projects";
+import AddProjects from "./pages/AddProject";
 import ProjectDetail from "./pages/Projects/ProjectDetail";
 import Home from "./pages/Home";
 import { AuthContext, AuthContextValue, initialContextValue } from "./utils/context/AuthContext";
@@ -46,6 +47,7 @@ const App: React.FC = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/map" element={<Map />} />
+            <Route path="/add-projects" element={<AddProjects />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/project/:id" element={<ProjectDetail />} />
             <Route path="*" element={<NotFound />} />
