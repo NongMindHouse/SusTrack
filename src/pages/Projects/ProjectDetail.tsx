@@ -1,9 +1,9 @@
 import ProjectCard from "@/components/Projects/ProjectCard";
 import React, { useCallback, useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 const ProjectDetail: React.FC = () => {
-  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
   const params = useParams();
 
   //   TODO: Fetch data here
@@ -16,22 +16,24 @@ const ProjectDetail: React.FC = () => {
     } catch (err) {
       //   setLoading(false);
     }
-    setLoading(false);
   }, []);
 
   useEffect(() => {
-    handleGetProject().then(() => setLoading(false));
+    handleGetProject();
   }, [handleGetProject]);
-
-  if (loading) return <>...</>;
 
   return (
     <div className="flex justify-center w-screen bg-white bg-[url('/images/bangkok-map-blur.png')]">
       <div className="bg-gray-100 relative overflow-hidden rounded-b-2xl w-[60em] mb-6 shadow-xl">
         {/* Arrow Back */}
-        <Link to="/projects" className="absolute left-5 top-5 bg-white w-8 h-8 rounded hover:border hover:border-navy">
+        <button
+          onClick={() => {
+            navigate(-1);
+          }}
+          className="absolute left-5 top-5 bg-white w-8 h-8 rounded hover:border hover:border-navy"
+        >
           <img src="/icon/arrow_down.png" className="absolute left-2 top-3 w-4 rotate-90 drop-shadow-2xl" alt="arrow" />
-        </Link>
+        </button>
 
         {/* Banner */}
         <div className="overflow-hidden">
@@ -71,7 +73,11 @@ const ProjectDetail: React.FC = () => {
             แคมป์ โปรเจกเตอร์ซีดาน ว้อยว้อดก้าเครปโซนี่สเตชัน โซนี่ซ้อเทวาซีเรียส
           </p>
 
-          <Link to="https://youtu.be/dQw4w9WgXcQ?si=MHrhltwzfU2XnkEW" target="_blank" className="block text-center w-fit bg-navy text-sm p-1 px-3 rounded-2xl text-white hover:bg-blue-700 transition duration-100 hover:scale-[1.03]">
+          <Link
+            to="https://youtu.be/dQw4w9WgXcQ?si=MHrhltwzfU2XnkEW"
+            target="_blank"
+            className="block text-center w-fit bg-navy text-sm p-1 px-3 rounded-2xl text-white hover:bg-blue-700 transition duration-100 hover:scale-[1.03]"
+          >
             เยี่ยมชมเว็บไซต์กิจกรรม
           </Link>
 
@@ -82,14 +88,19 @@ const ProjectDetail: React.FC = () => {
             <img src="/images/no_avatar.jpg" alt="Avatar" className="h-28 rounded-full" />
             <div>
               <h1 className="sm:text-xl font-bold pb-4">องค์การบริหารส่วนตำบล</h1>
-              <Link to={""} className="block text-center w-fit bg-navy text-sm p-1 px-3 rounded-2xl text-white hover:bg-blue-700 transition duration-100 hover:scale-[1.03]">
+              <Link
+                to={""}
+                className="block text-center w-fit bg-navy text-sm p-1 px-3 rounded-2xl text-white hover:bg-blue-700 transition duration-100 hover:scale-[1.03]"
+              >
                 เยี่ยมชมหน่วยงาน
               </Link>
             </div>
           </div>
           <div className="flex justify-between py-4">
             <p>โครงการอื่นๆ</p>
-            <Link to="/projects" className="hover:underline">ดูทั้งหมด →</Link>
+            <Link to="/projects" className="hover:underline">
+              ดูทั้งหมด →
+            </Link>
           </div>
           <div className="flex gap-x-6">
             <ProjectCard

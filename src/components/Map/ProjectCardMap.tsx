@@ -3,11 +3,11 @@ import { useNavigate } from "react-router-dom";
 import SDGList from "./SDGList";
 
 type Props = {
-    id: string;
-    title: string;
-    image: string;
-    desc: string;
-    sdgs:number[];
+  id: string;
+  title: string;
+  image: string;
+  desc: string;
+  sdgs: number[];
 };
 
 const ProjectCardMap: React.FC<Props> = ({ id, image, title, desc, sdgs }) => {
@@ -17,20 +17,20 @@ const ProjectCardMap: React.FC<Props> = ({ id, image, title, desc, sdgs }) => {
   };
 
   return (
-  <div
-    className="bg-gray-300 rounded-lg cursor-pointer hover:scale-[1.02] h-[150px]
+    <div
+      className="bg-gray-300 rounded-lg cursor-pointer hover:scale-[1.02] h-[160px]
     transition duration-100 shadow-sm hover:shadow-md flex gap-x-[5px] p-2"
-    onClick={Goto}
-  >
+      onClick={Goto}
+    >
       <div className="w-3/5 rounded-md overflow-hidden">
-        <img src={image} className="h-full w-full object-cover"/>
+        <img src={image} className="h-full w-full object-cover" />
       </div>
       <div className="flex flex-col gap-y-2 p-3">
         <p className="text-[16px] font-bold leading-5">{title}</p>
         <p className="text-[14px] leading-4">{desc}</p>
-        <SDGList selectedSDG={sdgs}/>
+        <SDGList selectedSDG={sdgs} />
       </div>
-  </div>
+    </div>
   );
 };
 

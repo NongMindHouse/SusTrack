@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./Sidebar.css";
 import { sdgColorList } from "@/utils/sdgColors";
 import SDGFilter from "./SDGFilter";
-import SDGList from "./SDGList";
 import ProjectCardMap from "./ProjectCardMap";
 
 type Props = {};
