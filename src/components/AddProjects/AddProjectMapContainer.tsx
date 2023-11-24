@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import ReactMapGL, { NavigationControl, Popup } from "react-map-gl";
-import PopupCard from "../Map/PopupCard";
+import ReactMapGL, { NavigationControl } from "react-map-gl";
 import SearchMap from "../Map/SearchMap";
 import AddProjectSidebar from "./AddProjectSidebar.tsx";
-import Markers, { Project } from "../Map/Markers";
 
 import "mapbox-gl/dist/mapbox-gl.css";
 import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css";
@@ -18,12 +16,6 @@ const AddProjectMapContainer: React.FC = () => {
     zoom: 16,
   });
 
-  const [popupInfo, setPopupInfo] = useState<Project>();
-
-  const handleClickPopup = (project: Project) => {
-    setPopupInfo(project);
-  };
-
   return (
     <div style={{ height: "100%", width: "100%" }}>
       <ReactMapGL
@@ -34,19 +26,6 @@ const AddProjectMapContainer: React.FC = () => {
           setViewport(evt.viewState);
         }}
       >
-        <Markers handleClickPopup={handleClickPopup} />
-
-        {popupInfo && (
-          <Popup
-            anchor="bottom"
-            longitude={Number(popupInfo.longitude)}
-            latitude={Number(popupInfo.latitude)}
-            onClose={() => setPopupInfo(undefined)}
-          >
-            <PopupCard title={popupInfo.title} image={popupInfo.image} desc={popupInfo.desc} />
-          </Popup>
-        )}
-
         <NavigationControl position="bottom-right" />
         <SearchMap mapboxAccessToken={mapboxAccessToken} position="top-left" />
         <AddProjectSidebar />
