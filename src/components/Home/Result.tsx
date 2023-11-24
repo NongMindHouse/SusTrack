@@ -7,26 +7,26 @@ const Result = () => {
       </div>
       <div className="bg-gray-100 lg:w-1/2 flex items-center justify-center">
         {/* Container */}
-        <div className="text-center flex-col items-center justify-center overflow-hidden my-[60px]">
+        <div className="text-center flex flex-col items-center justify-center overflow-hidden gap-y-5">
           {/* The text */}
-          <h1 className="text-[30px]">
-            ก้าวไปข้างหน้าเพื่อความยั่งยืนของเกย์
+          <h1 className="text-[35px]">
+            มาร่วมแรงร่วมใจ ก้าวไปด้วยกัน
             <br />
-            และน้องมายด์ในปี
+            มุ่งเข้าสู่ความยั่งยืนภายในปี
             <div className="text-lightgreen font-extrabold inline text-[30px] sm:text-[40px]"> “2030”</div>
           </h1>
           {/* Numbers */}
-          <div className="flex justify-center gap-x-3 items-stretch mt-[16px]">
-            <div className="w-fit bg-gray-200 rounded-lg flex-col items-center justify-center p-4">
-              <p className="text-2xl sm:text-[40px] font-bold text-left">999,999,999</p>
+          <div className="flex justify-center gap-x-6 items-stretch mt-[16px]">
+            <div className="w-fit bg-gray-200 rounded-lg flex flex-col gap-y-2 px-5 pt-5 pb-3">
+              <p className="text-2xl text-gray-700 sm:text-[40px] font-bold text-left">4,917</p>
               <p className="text-[20px] text-lightblue text-left">กิจกรรม</p>
             </div>
-            <div className="w-fit bg-gray-200 rounded-lg flex-col items-center justify-center p-4">
-              <p className="text-2xl sm:text-[40px] font-bold text-left">999</p>
+            <div className="w-fit bg-gray-200 rounded-lg flex flex-col gap-y-2 px-5 pt-5 pb-3">
+              <p className="text-2xl text-gray-700 sm:text-[40px] font-bold text-left">137</p>
               <p className="text-[20px] text-lightblue text-left">หน่วยงาน</p>
             </div>
-            <div className="w-fit bg-gray-200 rounded-lg flex-col items-center justify-center p-4">
-              <p className="text-2xl sm:text-[40px] font-bold text-left">999,999</p>
+            <div className="w-fit bg-gray-200 rounded-lg flex flex-col gap-y-2 px-5 pt-5 pb-3">
+              <p className="text-2xl text-gray-700 sm:text-[40px] font-bold text-left">19,668</p>
               <p className="text-[20px] text-lightblue text-left">เป้าหมาย</p>
             </div>
           </div>
