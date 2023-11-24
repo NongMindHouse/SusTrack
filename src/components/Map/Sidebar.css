@@ -4,10 +4,11 @@
     top: 0;
     left: 0;
     bottom: 0;
-    width: 600px;
+    width: 540px;
     background-color: rgba(138, 138, 138, 0.4);
     padding: 20px;
     box-shadow: -5px 0 10px rgba(0, 0, 0, 0.1);
     overflow-y: auto;
+    backdrop-filter: blur(6px);
   }
 }
