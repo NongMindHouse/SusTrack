@@ -5,6 +5,7 @@ export interface Project {
   title: string;
   image: string;
   desc: string;
+  selectedSDG: number;
   latitude: number;
   longitude: number;
 }
@@ -12,14 +13,17 @@ export interface Project {
 interface Props {
   handleClickPopup: (project: Project) => void;
   projects?: Project[];
+  imgHeight: string;
+  imgWidth: string;
 }
 
-const Markers: React.FC<Props> = ({ handleClickPopup, projects }) => {
-  const allProjects = [
+const Markers: React.FC<Props> = ({ handleClickPopup, projects, imgHeight, imgWidth }) => {
+  const dummyProjects = [
     {
       title: "CPE",
       image: "https://fastly.picsum.photos/id/658/536/354.jpg?hmac=lJsBY1i-cotZRX7y_Gs4NWkIaCtyhT3HhAeLnRpra8k",
       desc: "ก๋วยเตี๋ยวไก่มะระ คือ ก๋วยเตี๋ยวยอดนิยมของคนไทย ด้วยรสชาติเนื้อไก่ตุ๋นและไก่ฉีกที่ชุ่มฉ่ำ",
+      selectedSDG: 2,
       latitude: 13.6504405,
       longitude: 100.4946602,
     },
@@ -27,6 +31,7 @@ const Markers: React.FC<Props> = ({ handleClickPopup, projects }) => {
       title: "Square",
       image: "https://flowbite.com/docs/images/blog/image-1.jpg",
       desc: "ก๋วยเตี๋ยวไก่มะระ คือ ก๋วยเตี๋ยวยอดนิยมของคนไทย ด้วยรสชาติเนื้อไก่ตุ๋นและไก่ฉีกที่ชุ่มฉ่ำ",
+      selectedSDG: 4,
       latitude: 13.6512402,
       longitude: 100.4936268,
     },
@@ -34,12 +39,15 @@ const Markers: React.FC<Props> = ({ handleClickPopup, projects }) => {
       title: "KFC",
       image: "https://flowbite.com/docs/images/blog/image-1.jpg",
       desc: "ก๋วยเตี๋ยวไก่มะระ",
+      selectedSDG: 1,
       latitude: 13.6506018,
       longitude: 100.4932941,
     },
   ];
 
-  return allProjects.map((project, index) => (
+  if (!projects) projects = dummyProjects;
+
+  return projects.map((project, index) => (
     <Marker
       key={index}
       latitude={project.latitude}
@@ -50,9 +58,11 @@ const Markers: React.FC<Props> = ({ handleClickPopup, projects }) => {
       }}
     >
       <div className="p-3 cursor-pointer">
-        <span role="img" aria-label="marker" style={{ fontSize: "24px" }}>
-          📍
-        </span>
+        <img
+          src={`/icon/pin/pin-onmap-${project.selectedSDG}.png`}
+          style={{ height: imgHeight, width: imgWidth }}
+          alt="markers"
+        />
       </div>
     </Marker>
   ));

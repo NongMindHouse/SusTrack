@@ -12,6 +12,8 @@ import "./Popup.css";
 const mapboxAccessToken = import.meta.env.VITE_MAPBOX_ACCESS_TOKEN;
 
 const MapContainer: React.FC = () => {
+  const [imgHeight, setImgHeight] = useState("80px");
+  const [imgWidth, setImgWidth] = useState("56px");
   const [viewport, setViewport] = useState({
     latitude: 13.6504405,
     longitude: 100.4946602,
@@ -23,6 +25,19 @@ const MapContainer: React.FC = () => {
   const handleClickPopup = (project: Project) => {
     setPopupInfo(project);
   };
+  
+  const onChangeZoom = () => {
+    if (viewport.zoom > 15.5) {
+      setImgHeight("80px");
+      setImgWidth("56px");
+    } else if (viewport.zoom < 15.5) {
+      setImgHeight("60px");
+      setImgWidth("40px");
+    } else if (viewport.zoom < 14.5) {
+      setImgHeight("30px");
+      setImgWidth("20px");
+    }
+  };
 
   return (
     <div style={{ height: "100%", width: "100%" }}>
@@ -32,9 +47,11 @@ const MapContainer: React.FC = () => {
         mapStyle="mapbox://styles/mapbox/streets-v12"
         onMove={(evt) => {
           setViewport(evt.viewState);
+          onChangeZoom();
+          console.log(viewport.zoom);
         }}
       >
-        <Markers handleClickPopup={handleClickPopup} />
+        <Markers handleClickPopup={handleClickPopup} imgHeight={imgHeight} imgWidth={imgWidth} />
 
         {popupInfo && (
           <Popup
