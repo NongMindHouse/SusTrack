@@ -22,7 +22,7 @@ const Projects = () => {
   };
   return (
     <div className="px-8 pb-8 bg-[url('images/bangkok-map-blur.png')]
-    flex flex-row-reverse gap-x-10 w-full">
+    flex flex-row-reverse gap-x-10 w-full justify-center">
       <div className="flex flex-col gap-y-5">
         <div className="bg-white h-fit w-[300px] p-6 rounded-xl shadow-lg mt-6">
             ตัวกรองการค้นหากิจกรรม
