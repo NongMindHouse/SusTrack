@@ -18,8 +18,8 @@ const ProjectCardMap: React.FC<Props> = ({ id, image, title, desc, sdgs }) => {
 
   return (
     <div
-      className="bg-gray-300 rounded-lg cursor-pointer hover:scale-[1.02] h-[160px]
-    transition duration-100 shadow-sm hover:shadow-md flex gap-x-[5px] p-2"
+      className="bg-gray-300 rounded-lg cursor-pointer hover:scale-[1.02]
+    transition duration-100 shadow-sm hover:shadow-md flex gap-x-[5px] p-2 h-fit"
       onClick={Goto}
     >
       <div className="w-3/5 rounded-md overflow-hidden">

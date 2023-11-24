@@ -15,13 +15,6 @@ const SDGFilter: React.FC<Props> = ({ handleClick, selectedSDG, size}) => {
           duration-100 cursor-pointer"
           key={i}
         >
-          <p className={
-            size == "big" ?
-            "absolute left-2 top-1 text-white font-bold text-[14px]":
-            "hidden"
-          }>
-            {i+1}
-          </p>
           <img
             key={i}
             src={`/images/sdgs/sdg-${i + 1}.svg`}
@@ -45,6 +38,13 @@ const SDGFilter: React.FC<Props> = ({ handleClick, selectedSDG, size}) => {
             alt={`SDG ${i}`}
             onClick={() => handleClick(i)}
           />
+          <p className={
+            size == "big" ?
+            "absolute left-2 top-1 text-white font-bold text-[14px]":
+            "hidden"
+          }>
+            {i+1}
+          </p>
         </div>
       ))}
     </div>
