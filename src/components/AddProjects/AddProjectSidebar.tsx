@@ -51,25 +51,36 @@ const AddProjectSidebar: React.FC<Props> = () => {
         {/* PHOTOS */}
         <div className="bg-white rounded-md p-4">
 
-
         <label className="block font-medium mb-3 ">
           <p className="text-center">รูปภาพกิจกรรม</p>
-          <label className="flex flex-col items-center">
-            <input
-              type="file"
-              accept="image/*"
-              placeholder="กิจกรรมรณรงค์การแยกขยะก่อนทิ้ง"
-              className="w-full pt-2 mt-2 rounded-md"
-              required
-              onChange={handleFileChange}
-            />
-          </label>
-        </label>
-        {imagePreview && (
+
+          <div className="bg-gray-200 rounded-md p-2 mt-1 hover:bg-gray-300 hover:scale-[1.03] transition duration-200">
+              <input
+                id="upload"
+                type="file"
+                accept="image/*"
+                placeholder="กิจกรรมรณรงค์การแยกขยะก่อนทิ้ง"
+                className="w-full pt-2 mt-2 rounded-md hidden"
+                required
+                onChange={handleFileChange}
+              />
+              {imagePreview && (
                 <div className="mt-2">
                   <img src={imagePreview} alt="Preview" className="w-full rounded-md" />
                 </div>
               )}
+              {!imagePreview && (
+                <div>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" className="w-10 h-10 text-gray-600 mx-auto mb-4">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
+                  </svg>
+                  <p className="mt-2 text-gray-700 text-center"> เพิ่มรูปโครงการ รูปควรอยู่ในไฟล์ {" "} 
+                  <b className="text-gray-500"> JPG, PNG, or GIF</b></p>
+                </div>
+              )}
+
+            </div>
+          </label>
         </div>
           {/* SDGs */}
           <div className="bg-white p-4 rounded-md w-full text-center mt-2">
@@ -84,7 +95,7 @@ const AddProjectSidebar: React.FC<Props> = () => {
             <input
               type="text"
               placeholder="กิจกรรมรณรงค์การแยกขยะก่อนทิ้ง"
-              className="w-full px-4 py-2 mt-2 border rounded-md 
+              className="w-full px-4 py-2 mt-2 border rounded-md
               focus:outline-none focus:ring-1 focus:ring-navy"
               required
             />
@@ -99,7 +110,7 @@ const AddProjectSidebar: React.FC<Props> = () => {
             <input
               type="url"
               placeholder="https://sdgs.co.th/articles/12345/"
-              className="w-full px-4 py-2 mt-2 border rounded-md 
+              className="w-full px-4 py-2 mt-2 border rounded-md
               focus:outline-none focus:ring-1 focus:ring-navy"
               required
             />
