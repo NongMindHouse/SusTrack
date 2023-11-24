@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ReactMapGL, { NavigationControl } from "react-map-gl";
 import SearchMap from "../Map/SearchMap";
 import AddProjectSidebar from "./AddProjectSidebar.tsx";
+import PopupIndicator from "./PopupIndicator.tsx";
 
 import "mapbox-gl/dist/mapbox-gl.css";
 import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css";
@@ -30,6 +31,7 @@ const AddProjectMapContainer: React.FC = () => {
         <SearchMap mapboxAccessToken={mapboxAccessToken} position="top-left" />
         <AddProjectSidebar />
       </ReactMapGL>
+      <PopupIndicator activeTab={0} isOpen={false}/>
     </div>
   );
 };
