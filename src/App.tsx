@@ -13,6 +13,7 @@ import AddProjects from "./pages/AddProject";
 import ProjectDetail from "./pages/Projects/ProjectDetail";
 import Home from "./pages/Home";
 import { AuthContext, AuthContextValue, initialContextValue } from "./utils/context/AuthContext";
+import { Axios } from "./utils/Axios";
 
 const App: React.FC = () => {
   const [authContext, setAuthContext] = useState<AuthContextValue>(initialContextValue);
@@ -20,10 +21,12 @@ const App: React.FC = () => {
 
   const handleLogin = useCallback(async (): Promise<void> => {
     try {
-      // const res = await Axios.get('/api/users')
-      // if (res.status === 200) {
-      //   setAuthContext({ ...res.data.data, isAuthenticated: true })
-      // }
+      const res = await Axios.get("/api/users");
+      if (res.status === 200) {
+        console.log(res.data);
+
+        setAuthContext({ ...res.data.data, isAuthenticated: true });
+      }
     } catch (err) {
       setLoading(false);
     }

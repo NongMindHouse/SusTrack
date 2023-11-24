@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from "react";
+import { AuthContext } from "@/utils/context/AuthContext";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import UserNavbar from "./UserNavbar";
 
 type Props = {};
 
 const Navbar: React.FC<Props> = ({}) => {
   const { pathname } = useLocation();
   const [showMenu, setShowMenu] = useState(false);
+  const auth = useContext(AuthContext);
 
   const toggleNavbar = () => {
     setShowMenu(!showMenu);
@@ -27,8 +30,8 @@ const Navbar: React.FC<Props> = ({}) => {
     <nav className="bg-navy border-gray-200 dark:bg-gray-900 sticky top-0 z-50">
       <div className="min-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Link to="/" className="pl-6 text-2xl text-white font-bold">
-          <img src="images/sdgs-circle-no-text.png" className="inline h-8"/>
-          <img src="images/mascot/mascot-laptop-right.png" className="inline h-10 mx-2"/>
+          <img src="images/sdgs-circle-no-text.png" className="inline h-8" />
+          <img src="images/mascot/mascot-laptop-right.png" className="inline h-10 mx-2" />
           SusTrack
         </Link>
         {/* Bar3 */}
@@ -56,12 +59,21 @@ const Navbar: React.FC<Props> = ({}) => {
                 {nav.name}
               </Link>
             ))}
-            <Link
-              className=" text-gray-800 hover:bg-lightblue hover:text-white px-3 py-1 bg-gray-200 rounded-full transition ease-linear duration-200 hover:scale-105"
-              to="/login"
-            >
-              เข้าสู่ระบบ
-            </Link>
+            {/* Check Auth Login */}
+            {auth?.authContext.isAuthenticated ? (
+              <UserNavbar
+                email={auth.authContext.email}
+                userName={auth.authContext.userName}
+                profileUrl={auth.authContext.profileUrl}
+              />
+            ) : (
+              <Link
+                className=" text-gray-800 hover:bg-lightblue hover:text-white px-3 py-1 bg-gray-200 rounded-full transition ease-linear duration-200 hover:scale-105"
+                to="/login"
+              >
+                เข้าสู่ระบบ
+              </Link>
+            )}
           </ul>
         </div>
       </div>

@@ -25,7 +25,7 @@ const Sidebar: React.FC<Props> = () => {
   };
 
   return (
-    <div className="sideBar backdrop-blur-[6px]">
+    <div className="sideBar">
       <div className="pt-10 text-base">
         {/* SDGs Filter */}
         <p className="text-lg">ตัวกรองผลลัพธ์การค้นหา SDGs</p>

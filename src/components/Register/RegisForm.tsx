@@ -1,11 +1,11 @@
 import { auth, googleProvider } from "@/lib/firebase";
+import { Axios } from "@/utils/Axios";
 import { signInWithPopup } from "firebase/auth";
 import React from "react";
 
 type Props = {};
 
 const RegisForm: React.FC<Props> = () => {
-
   const handleRegis = (e: React.FormEvent<EventTarget>) => {
     e.preventDefault();
   };
@@ -14,7 +14,20 @@ const RegisForm: React.FC<Props> = () => {
     const result = await signInWithPopup(auth, googleProvider);
     const idToken = await result.user.getIdToken();
     console.log(idToken);
-    
+    Axios.post(
+      "/api/users/login",
+      {},
+      {
+        headers: { "id-token": idToken },
+      }
+    )
+      .then((response) => {
+        if (response.status === 200 || 201) window.location.pathname = "/";
+        else console.log("Err");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
