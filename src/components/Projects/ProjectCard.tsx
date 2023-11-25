@@ -20,7 +20,7 @@ const ProjectCard: React.FC<Props> = ({ id, image, title, desc }) => {
       </div>
       <div className="p-5">
         <h5 className="mb-2 text-xl font-bold tracking-tight text-black ">{title}</h5>
-        <p className="mb-3 text-black ">{desc}</p>
+        <p className="mb-3 text-black whitespace-nowrap overflow-hidden text-ellipsis">{desc}</p>
       </div>
     </div>
   );
