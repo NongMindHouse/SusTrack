@@ -36,11 +36,11 @@ const Projects = () => {
   };
   return (
     <div
-      className="px-8 pb-8 bg-[url('images/bangkok-map-blur.png')]
-    flex flex-row-reverse gap-x-10 w-full justify-center"
+      className="px-4 pb-8 bg-[url('images/bangkok-map-blur.png')]
+    flex flex-row-reverse gap-x-4 w-full justify-center"
     >
       <div className="flex flex-col gap-y-5">
-        <div className="bg-white h-fit w-[300px] p-6 rounded-xl shadow-lg mt-6">
+        <div className="bg-white h-fit w-[350px] p-6 rounded-xl shadow-lg mt-6">
           ตัวกรองการค้นหากิจกรรม
           <form>
             <div>
@@ -60,14 +60,17 @@ const Projects = () => {
             </button>
           </form>
         </div>
-        <div className="w-[300px]">
+        <div className="w-[350px]">
           <p>SDGs ที่เกี่ยวข้อง</p>
-          <SDGFilter handleClick={Test} selectedSDG={selectedSDGs} size="small" />
+          <div className="">
+            <SDGFilter handleClick={Test} selectedSDG={selectedSDGs} size="big" />
+          </div>
         </div>
       </div>
       <div className="lg:w-[1000px] bg-white rounded-b-xl shadow-lg">
         <h1 className="pt-3 pl-4 text-lg font-bold">โครงการทั้งหมด</h1>
         {projects ? <ProjectList projects={projects} /> : null}
+
       </div>
     </div>
   );

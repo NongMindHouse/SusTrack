@@ -12,7 +12,7 @@ type Props = {
 const SDGFilter: React.FC<Props> = ({ handleClick, selectedSDG, size }) => {
 
   return (
-    <div className="bg-gray-100 mx-auto mb-5 p-5 rounded-lg flex flex-wrap">
+    <div className="bg-gray-100 mx-auto mb-5 p-4 rounded-lg flex flex-wrap justify-center">
       {sdgColorList.map((color, i: number) => (
         <div
           className="relative hover:scale-[1.07] transition
