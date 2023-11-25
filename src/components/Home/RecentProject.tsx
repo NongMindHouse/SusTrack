@@ -15,7 +15,7 @@ const RecentProject = () => {
       const triggerPosi = viewportHe * 2;
 
       // Calculate the current scroll position
-      const scrollPosi = window.scrollY;
+      const scrollPosi = window.scrollY
 
       setForthVisible(scrollPosi > triggerPosi);
     };
@@ -34,7 +34,7 @@ const RecentProject = () => {
       <div className="w-[90%]">
         <h1 className="text-2xl">ข่าวโครงการล่าสุด</h1>
         {/* map all data */}
-        <div className={` transition-all duration-500 ease-in-out ${forthVisible ? "scale-100 opacity-100" : "scale-75 opacity-0"} `}>
+        <div className={` transition-all duration-500 ease-in-out ${forthVisible ? "scale-100 opacity-100" : "scale-[0.8] opacity-0"} `}>
           <ProjectList />
         </div>
         {/* Button */}
