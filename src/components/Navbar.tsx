@@ -31,7 +31,7 @@ const Navbar: React.FC<Props> = ({}) => {
       <div className="min-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Link to="/" className="pl-6 text-2xl text-white font-bold">
           {/* <img src="images/sdgs-circle-no-text.png" className="inline h-8"/> */}
-          <img src="public/images/Sustrack-logo-text.png" className="inline h-8 mx-2"/>
+          <img src="/images/Sustrack-logo-text.png" className="inline h-8 mx-2" />
         </Link>
         {/* Bar3 */}
         <button

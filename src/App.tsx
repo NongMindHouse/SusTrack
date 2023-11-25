@@ -14,6 +14,7 @@ import ProjectDetail from "./pages/Projects/ProjectDetail";
 import Home from "./pages/Home";
 import { AuthContext, AuthContextValue, initialContextValue } from "./utils/context/AuthContext";
 import { Axios } from "./utils/Axios";
+import Result from "./pages/Result";
 
 const App: React.FC = () => {
   const [authContext, setAuthContext] = useState<AuthContextValue>(initialContextValue);
@@ -53,6 +54,7 @@ const App: React.FC = () => {
             <Route path="/add-projects" element={<AddProjects />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/project/:id" element={<ProjectDetail />} />
+            <Route path="/result" element={<Result />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />

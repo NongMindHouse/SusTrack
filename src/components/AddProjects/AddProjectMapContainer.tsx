@@ -12,8 +12,8 @@ const mapboxAccessToken = import.meta.env.VITE_MAPBOX_ACCESS_TOKEN;
 
 const AddProjectMapContainer: React.FC = () => {
   const [viewport, setViewport] = useState({
-    latitude: 13.6504405,
-    longitude: 100.4946602,
+    latitude: 13.7205107,
+    longitude: 100.4991089,
     zoom: 16,
   });
 
@@ -46,7 +46,12 @@ const AddProjectMapContainer: React.FC = () => {
         <SearchMap mapboxAccessToken={mapboxAccessToken} position="top-left" />
         <AddProjectSidebar onSDGsClick={handleSDGsClick} />
       </ReactMapGL>
-      <PopupIndicator isOpen={isPopupOpen} activeTab={activeTab} onTabClick={handleTabClick} onClose={handleClosePopup}/>
+      <PopupIndicator
+        isOpen={isPopupOpen}
+        activeTab={activeTab}
+        onTabClick={handleTabClick}
+        onClose={handleClosePopup}
+      />
     </div>
   );
 };
