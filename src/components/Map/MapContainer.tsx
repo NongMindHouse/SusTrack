@@ -28,15 +28,21 @@ const MapContainer: React.FC = () => {
   
   const onChangeZoom = () => {
     if (viewport.zoom > 15.5) {
-      setImgHeight("80px");
-      setImgWidth("56px");
-    } else if (viewport.zoom < 15.5) {
       setImgHeight("60px");
       setImgWidth("40px");
-    } else if (viewport.zoom < 14.5) {
-      setImgHeight("30px");
-      setImgWidth("20px");
-    }
+    } else if (viewport.zoom > 14.5) {
+      setImgHeight("50px");
+      setImgWidth("35px");
+    } else if (viewport.zoom > 12.5) {
+      setImgHeight("44px");
+      setImgWidth("30px");
+    } else if (viewport.zoom > 11.5) {
+      setImgHeight("32px");
+      setImgWidth("24px");
+    }else if (viewport.zoom > 10.5) {
+      setImgHeight("17px");
+      setImgWidth("12px");
+  }
   };
 
   return (
@@ -48,7 +54,7 @@ const MapContainer: React.FC = () => {
         onMove={(evt) => {
           setViewport(evt.viewState);
           onChangeZoom();
-          console.log(viewport.zoom);
+          // console.log(viewport.zoom);
         }}
       >
         <Markers handleClickPopup={handleClickPopup} imgHeight={imgHeight} imgWidth={imgWidth} />
