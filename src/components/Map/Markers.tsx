@@ -1,18 +1,10 @@
+import { Project } from "@/types/Model";
 import React from "react";
 import { Marker } from "react-map-gl";
 
-export interface Project {
-  title: string;
-  image: string;
-  desc: string;
-  selectedSDG: number;
-  latitude: number;
-  longitude: number;
-}
-
 interface Props {
   handleClickPopup: (project: Project) => void;
-  projects?: Project[];
+  projects: Project[];
   imgHeight: string;
   imgWidth: string;
 }
@@ -35,17 +27,10 @@ const Markers: React.FC<Props> = ({ handleClickPopup, projects, imgHeight, imgWi
       latitude: 13.6512402,
       longitude: 100.4936268,
     },
-    {
-      title: "KFC",
-      image: "https://flowbite.com/docs/images/blog/image-1.jpg",
-      desc: "ก๋วยเตี๋ยวไก่มะระ",
-      selectedSDG: 1,
-      latitude: 13.6506018,
-      longitude: 100.4932941,
-    },
   ];
 
-  if (!projects) projects = dummyProjects;
+  // if (!projects) projects = dummyProjects;
+  // projects.concat(dummyProjects)
 
   return projects.map((project, index) => (
     <Marker
