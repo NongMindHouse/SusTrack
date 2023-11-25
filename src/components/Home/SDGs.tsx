@@ -42,7 +42,7 @@ const SDGs = () => {
       const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
 
       // Calculate the position where the element should become visible
-      const triggerPosition = viewportHeight / 2;
+      const triggerPosition = viewportHeight / 1.9;
 
       // Calculate the current scroll position
       const scrollPosition = window.scrollY;
@@ -58,18 +58,18 @@ const SDGs = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  
+
   return (
     <div className="bg-navy py-12">
       <div className={`lg:flex justify-center items-center gap-x-16 p-6
-      transition-transform duration-1000 ease-in-out transform ${isVisible ? "translate-y-0 opacity-[100%]" : "translate-y-10 opacity-[0%]"}`}>
+      transition-all duration-500 ease-in-out ${isVisible ? "opacity-100 transform translate-y-0" : "opacity-0 transform translate-y-10"}`}>
         {/* SDGs */}
         <div className="text-white w-full lg:w-[700px]">
           <h1 className="text-5xl font-bold py-4">
-            <img src="/images/sdgs-circle-no-text.png" className="inline w-[50px] mb-2 mr-4 animate-[spin_30s_linear_infinite]"></img>
+            <img src="/images/sdgs-circle-no-text.png" className="inline w-[50px] mb-2 mr-4 animate-[spin_40s_linear_infinite]"></img>
             SDGs คืออะไร?
           </h1>
-          <p className="leading-8 text-[18px]">
+          <p className={`leading-8 text-[18px] transition-all duration-500 ease-in-out ${isVisible ? "opacity-100 transform translate-y-0" : "opacity-0 transform translate-y-10"}`}>
             เป้าหมายการพัฒนาที่ยั่งยืน (Sustainable Development Goals: SDGs) เป็นชุดเป้าหมายการพัฒนาระดับโลกหลังปี 2015
             ที่ได้รับการรับรองจาก 193 ประเทศสมาชิกขององค์การสหประชาชาติ เมื่อวันที่ 25 กันยายน ค.ศ. 2015
             ครอบคลุมช่วงระยะเวลาที่ต้องบรรลุภายใน 15 ปี
@@ -86,7 +86,7 @@ const SDGs = () => {
           </p>
         </div>
         {/* Image */}
-        <div className="flex justify-center pt-5">
+        <div className={`flex justify-center pt-5 transition-all duration-500 ease-in-out ${isVisible ? "opacity-100 transform translate-y-0" : "opacity-0 transform translate-y-10"}`}>
           {/* <img src="/images/sdgs-circle.png" className="w-[300px] text-center animate-[spin_30s_linear_infinite]" alt="" /> */}
           <GoalLinks/>
         </div>
