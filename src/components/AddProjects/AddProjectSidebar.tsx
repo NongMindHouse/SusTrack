@@ -94,7 +94,7 @@ const AddProjectSidebar: React.FC<Props> = ({ onSDGsClick }) => {
           onClick={handleSDGsClick}
           style={{ cursor: "pointer" }}
           >
-            <p className="text-center">กดเพื่อเลือกหัวข้อ SDGs</p>
+            <p className="text-center"> SDGs </p>
           </div>
         </div>
         {/* ORGANIZATION */}

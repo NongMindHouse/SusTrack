@@ -5,7 +5,7 @@ const ConResult = () => {
             {/* Top container */}
             <div className="h-[750px] w-full bg-white">
                 <div className="w-full  h-[100%] grid grid-cols-[40%_1fr]">
-                    <div className="w-full h-[100%] bg-white flex flex-col">
+                    <div className="w-full h-[100%] bg-white flex flex-col ">
                         <p className="mt-3 ml-4 inline-block text-2xl text-blue-950"> รายงานผลทั้งหมด </p>
                         <div>ertyu</div>
                         <p className="mt-3 ml-4 inline-block text-2xl text-blue-950"> รายงานผลทั้งหมด </p>
