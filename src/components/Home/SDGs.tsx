@@ -1,20 +1,22 @@
 import { sdgColorList } from "@/utils/sdgColors";
 import React, { useEffect, useState } from "react";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const GoalLinks:React.FC = () =>{
+const GoalLinks: React.FC = () => {
   return (
     <div className="w-[500px] flex flex-wrap">
       {sdgColorList.map((color, i: number) => (
-        <Link className="relative hover:scale-[1.07] transition
+        <Link
+          key={i}
+          className="relative hover:scale-[1.07] transition
           duration-100 cursor-pointer"
-          to={`https://sdgs.un.org/goals/goal${i+1}`}
+          to={`https://sdgs.un.org/goals/goal${i + 1}`}
           target="_blank"
         >
           <img
             key={i}
             src={`/images/sdgs/sdg-${i + 1}.svg`}
-            className = "block w-[80px] h-[80px] rounded-sm p-3 m-1"
+            className="block w-[80px] h-[80px] rounded-sm p-3 m-1"
             // style={{ backgroundColor: color, opacity: 0.2 }}
             style={{
               backgroundColor: color,
@@ -24,14 +26,12 @@ const GoalLinks:React.FC = () =>{
             }}
             alt={`SDG ${i}`}
           />
-          <p className="absolute left-2 top-1 text-white font-bold text-[14px]">
-            {i+1}
-          </p>
+          <p className="absolute left-2 top-1 text-white font-bold text-[14px]">{i + 1}</p>
         </Link>
       ))}
     </div>
   );
-}
+};
 
 const SDGs = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -61,15 +61,26 @@ const SDGs = () => {
 
   return (
     <div className="bg-navy py-12">
-      <div className={`lg:flex justify-center items-center gap-x-16 p-6
-      transition-all duration-500 ease-in-out ${isVisible ? "opacity-100 transform translate-y-0" : "opacity-0 transform translate-y-10"}`}>
+      <div
+        className={`lg:flex justify-center items-center gap-x-16 p-6
+      transition-all duration-500 ease-in-out ${
+        isVisible ? "opacity-100 transform translate-y-0" : "opacity-0 transform translate-y-10"
+      }`}
+      >
         {/* SDGs */}
         <div className="text-white w-full lg:w-[700px]">
           <h1 className="text-5xl font-bold py-4">
-            <img src="/images/sdgs-circle-no-text.png" className="inline w-[50px] mb-2 mr-4 animate-[spin_40s_linear_infinite]"></img>
+            <img
+              src="/images/sdgs-circle-no-text.png"
+              className="inline w-[50px] mb-2 mr-4 animate-[spin_40s_linear_infinite]"
+            ></img>
             SDGs คืออะไร?
           </h1>
-          <p className={`leading-8 text-[18px] transition-all duration-500 ease-in-out ${isVisible ? "opacity-100 transform translate-y-0" : "opacity-0 transform translate-y-10"}`}>
+          <p
+            className={`leading-8 text-[18px] transition-all duration-500 ease-in-out ${
+              isVisible ? "opacity-100 transform translate-y-0" : "opacity-0 transform translate-y-10"
+            }`}
+          >
             เป้าหมายการพัฒนาที่ยั่งยืน (Sustainable Development Goals: SDGs) เป็นชุดเป้าหมายการพัฒนาระดับโลกหลังปี 2015
             ที่ได้รับการรับรองจาก 193 ประเทศสมาชิกขององค์การสหประชาชาติ เมื่อวันที่ 25 กันยายน ค.ศ. 2015
             ครอบคลุมช่วงระยะเวลาที่ต้องบรรลุภายใน 15 ปี
@@ -86,9 +97,13 @@ const SDGs = () => {
           </p>
         </div>
         {/* Image */}
-        <div className={`flex justify-center pt-5 transition-all duration-500 ease-in-out ${isVisible ? "opacity-100 transform translate-y-0" : "opacity-0 transform translate-y-10"}`}>
+        <div
+          className={`flex justify-center pt-5 transition-all duration-500 ease-in-out ${
+            isVisible ? "opacity-100 transform translate-y-0" : "opacity-0 transform translate-y-10"
+          }`}
+        >
           {/* <img src="/images/sdgs-circle.png" className="w-[300px] text-center animate-[spin_30s_linear_infinite]" alt="" /> */}
-          <GoalLinks/>
+          <GoalLinks />
         </div>
       </div>
       <div className="text-right">

@@ -16,12 +16,8 @@ const CoolQuote: React.FC = () => {
       // Calculate the position where the element should become visible
       const triggerPos = viewportH * 1.8;
 
-      console.log("viewportHeights : "+viewportH);
-      console.log("triggerPositions : "+triggerPos);
-
       // Calculate the current scroll position
       const scrollPos = window.scrollY;
-      console.log("scrollPositions : "+scrollPos);
 
       setCoitVisible(scrollPos > triggerPos);
     };
