@@ -72,7 +72,8 @@ const Navbar: React.FC<Props> = ({}) => {
               >
                 เข้าสู่ระบบ
               </Link>
-            )}
+            )
+            }
           </ul>
         </div>
       </div>
