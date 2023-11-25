@@ -34,7 +34,7 @@ const RegisForm: React.FC<Props> = () => {
     <div className="flex flex-col items-center justify-center">
       <div className="flex-grow ">
         <div className="flex items-center justify-center ">
-          <div className="px-8 py-6 mt-4 text-left bg-white sm:w-[450px] rounded-xl border-2 border-black shadow-lg">
+          <div className="px-8 py-6 mt-4 text-left bg-white sm:w-[450px] rounded-xl shadow-lg">
             <h3 className="text-2xl font-bold text-center mt-3">
               ลงทะเบียน <span className="font-bold text-lightblue">SusTrack</span>
             </h3>
