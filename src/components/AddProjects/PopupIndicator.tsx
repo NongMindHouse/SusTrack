@@ -1,5 +1,6 @@
 import React, {useEffect} from "react";
 import { sdgColorList } from "@/utils/sdgColors";
+import indicatorData from "@/utils/Indicator.json";
 
 type Props = {
   isOpen:boolean,
@@ -29,6 +30,48 @@ const PopupIndicator:React.FC<Props> = ({activeTab,isOpen,onTabClick, onClose}) 
     }
   };
 
+  const searchIndicatorByID = (unid:string) => {
+    return indicatorData.find(item => item.UNSDIndicatorCodes === unid);
+  };
+
+  const searchIndicatorByGoal = (goal:number) => {
+    return indicatorData.filter(item => item.SDGNumber === goal);
+  };
+
+  const searchIndicatorByTarget = (target:string) => {
+    return indicatorData.filter(item => item.TargetsNumber.toString() === target);
+  };
+
+  const loadIndicator = (goal:number) => {  
+    const goalObject = searchIndicatorByGoal(goal+1);
+    console.log(`${goal+1}:${goalObject.length}`);
+    const targets = Array.from(new Set(goalObject.map(item => item.TargetsNumber.toString())));
+    console.log(targets)
+
+    return (
+      <div>
+        {targets.map((target) => (
+          <div>
+            <p className="text-lg bg-gray-300 p-2 rounded-lg">
+              {target + ")"} {goalObject.find(item => item.TargetsNumber.toString() === target)?.Targets}
+            </p>
+            {goalObject.filter(item => item.TargetsNumber.toString() === target).map((ind) => (
+              <div className="bg-gray-200 my-3 rounded-md mx-4 p-2
+               grid grid-cols-[5%_1fr]">
+                <input type="checkbox" className="mx-2 my-auto w-5 h-5 accent-green-600 cursor-pointer"></input>
+                <p className="text-sm">
+                  {ind.IndicatorsNumber + ")"} {ind.Indicators}
+                  </p>
+              </div>
+            ))
+            }
+          </div>
+        ))
+        }
+      </div>
+    );
+  };
+
   useEffect(() => {
     // Add event listener on mount
     document.addEventListener("keydown", handleKeyDown);
@@ -50,7 +93,7 @@ const PopupIndicator:React.FC<Props> = ({activeTab,isOpen,onTabClick, onClose}) 
           onClick={handleOverlayClick}
     >
       <div className="md:w-[500px] lg:w-[800px] xl:w-[1000px] 2xl:w-[1400px]
-      p-3 rounded-lg flex flex-col mt-20 relative"
+      p-3 rounded-lg flex flex-col relative"
       >
         {/* TABS */}
         <div className="w-full grid" style={{
@@ -83,7 +126,7 @@ const PopupIndicator:React.FC<Props> = ({activeTab,isOpen,onTabClick, onClose}) 
             </div>
         ))}
         </div>
-        <div className="bg-white p-5 rounded-b-lg h-[500px] 2xl:h-[700px]">
+        <div className="bg-white p-5 rounded-b-lg h-[540px] 2xl:h-[700px]">
           {/* BANNER GOAL */}
           <div className="absolute top-[75px] -left-[40px] w-[80px] h-[120px]
           flex flex-col justify-center items-center text-white"
@@ -103,33 +146,40 @@ const PopupIndicator:React.FC<Props> = ({activeTab,isOpen,onTabClick, onClose}) 
             </p>
           </div>
           {/* CONTAINTER */}
-          <div className="ml-8 mr-4 flex flex-col">
-            <form>
+          <form>
+          <div className="ml-8 mr-4 h-[500px] grid grid-rows-auto">
               {/* GOAL TEXT */}
               <div className="">
-                <p className="text-[28px] my-2">
-                  <input type="checkbox" value="SDG1"
-                  className="w-7 h-7 mr-4 accent-green-600" />
-                  <p className="inline-block "> เป้าหมายที่ 1 ยุติความจนในทุกรูปแบบ </p>
+                <p className="text-2xl my-2">
+                  {/* <input type="checkbox" value="SDG1"
+                  className="w-7 h-7 mr-4 accent-green-600" /> */}
+                  <p className="inline-block"> เป้าหมายที่ {activeTab+1} {indicatorData.find(item => item.SDGNumber === (activeTab+1))?.SDGTitle}
+                  </p>
                 </p>
               </div>
               {/* INDICATOR CONTAINER */}
-              <div className="bg-gray-200 h-[360px] 2xl:h-[560px] p-3 rounded-lg overflow-auto">
-                <div className="h-[600px]">
-                  indicator container
+              <div className="bg-gray-100 p-3 rounded-lg overflow-auto">
+                <div>
+                  {loadIndicator(activeTab)}
                 </div>
               </div>
               {/* SUBMIT */}
               <div className="flex justify-end mt-4 gap-x-4">
-                <button className="bg-red-600 text-white px-4 py-1 rounded-full hover:scale-105 hover:bg-red-500">
+                <div
+                className="bg-red-600 text-white px-4 py-1 rounded-full hover:scale-105 hover:bg-red-500 cursor-pointer"
+                onClick={handleOverlayClick}
+                >
                   ยกเลิก
-                </button>
-                <button className="bg-green-600 text-white px-4 py-1 rounded-full hover:scale-105 hover:bg-green-500">
+                </div>
+                <div
+                className="bg-green-600 text-white px-4 py-1 rounded-full hover:scale-105 hover:bg-green-500 cursor-pointer"
+                onClick={handleOverlayClick}
+                >
                   ตกลง
-                </button>
+                </div>
               </div>
-            </form>
           </div>
+            </form>
         </div>
       </div>
       </div>

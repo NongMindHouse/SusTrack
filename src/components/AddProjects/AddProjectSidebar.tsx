@@ -29,21 +29,21 @@ const AddProjectSidebar: React.FC<Props> = ({ onSDGsClick }) => {
     }
   };
 
-  const Test = (i: number) => {
-    // Toggle Select
+  // const Test = (i: number) => {
+  //   // Toggle Select
 
-    // if select => remove from selected
-    if (selectedSDGs.includes(i)) {
-      const deletedSelect = selectedSDGs.filter((select) => {
-        return select != i;
-      });
-      setSelectedSDGs(deletedSelect);
-    } else {
-      setSelectedSDGs([...selectedSDGs, i]);
-    }
-    console.log(selectedSDGs);
-    console.log("Click", i);
-  };
+  //   // if select => remove from selected
+  //   if (selectedSDGs.includes(i)) {
+  //     const deletedSelect = selectedSDGs.filter((select) => {
+  //       return select != i;
+  //     });
+  //     setSelectedSDGs(deletedSelect);
+  //   } else {
+  //     setSelectedSDGs([...selectedSDGs, i]);
+  //   }
+  //   console.log(selectedSDGs);
+  //   console.log("Click", i);
+  // };
 
   const handleSDGsClick = () => {
     // Call the parent component's callback function
@@ -94,8 +94,23 @@ const AddProjectSidebar: React.FC<Props> = ({ onSDGsClick }) => {
           onClick={handleSDGsClick}
           style={{ cursor: "pointer" }}
           >
-            <p className="text-center"> SDGs </p>
+            <p className="text-center">กดเพื่อเลือกหัวข้อ SDGs</p>
           </div>
+        </div>
+        {/* ORGANIZATION */}
+        <div>
+        <label className="block font-medium mb-3">
+          ชื่อองค์กร/หน่วยงาน
+          <label>
+            <input
+              type="text"
+              placeholder="พวกเรารัก Sirisoft"
+              className="w-full px-4 py-2 mt-2 border rounded-md
+              focus:outline-none focus:ring-1 focus:ring-navy"
+              required
+            />
+          </label>
+        </label>
         </div>
         {/* ACTIVITY NAME */}
         <div>
