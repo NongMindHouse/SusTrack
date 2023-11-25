@@ -32,7 +32,8 @@ const Hero: React.FC = () => {
             </div>
           </div>
       </section>
-      <div className="block absolute bottom-[100px] text-white text-center w-full text-2xl  animate-bounce"> เลื่อนเพื่อดูเพิ่มเติม↓</div>
+      <div className="block absolute bottom-[70px] text-white text-center w-full text-2xl  animate-bounce"> 
+      <p> เลื่อนเพื่อดูเพิ่มเติม </p> <p>↓</p> </div>
       <div className="text-sm bg-gradient-to-b from-transparent to-navy w-full absolute bottom-0 h-20"></div>
     </div>
   );
