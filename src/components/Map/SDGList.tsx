@@ -1,5 +1,6 @@
 import React from "react";
 import { sdgColorList } from "@/utils/sdgColors";
+import indicatorData from "@/utils/Indicator.json";
 
 type Props = {
   selectedSDG: number[];
@@ -24,7 +25,10 @@ const SDGList: React.FC<Props> = ({ selectedSDG, size }) => {
             style={{
               display:"block",
               borderRadius:"0.125rem",
-              backgroundColor: sdgColorList[i - 1] }}
+              backgroundColor: sdgColorList[i - 1] 
+            }}
+            alt={`SDG ${i}`}
+            title={`SDG ${i}: ${indicatorData.find(item => item.SDGNumber === (i))?.SDGTitle}`}
           />
           ))}
       </div>

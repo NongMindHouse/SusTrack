@@ -1,5 +1,7 @@
 import React from "react";
 import { sdgColorList } from "@/utils/sdgColors";
+import Tooltip from "@/components/Tooltip/Tooltip.tsx";
+import indicatorData from "@/utils/Indicator.json";
 
 type Props = {
   handleClick: (message: number) => void;
@@ -17,7 +19,10 @@ const SDGFilter: React.FC<Props> = ({ handleClick, selectedSDG, size }) => {
           duration-100 cursor-pointer"
           key={i}
         >
-          <img
+          <div className="container">
+            <Tooltip disabled={false} content={`SDGs ${i+1}`}>
+              <div >
+              <img
             key={i}
             src={`/images/sdgs/sdg-${i + 1}.svg`}
             className={
@@ -32,11 +37,15 @@ const SDGFilter: React.FC<Props> = ({ handleClick, selectedSDG, size }) => {
               transition: "opacity 0.1s ease-in-out",
               filter: selectedSDG.includes(i) ? "none" : "grayscale(60%)",
             }}
-            alt={`SDG ${i}`}
-            title={`SDG ${i + 1}: More information goes here`}
+            alt={`SDGs ${i+1}`}
+            title={`${indicatorData.find(item => item.SDGNumber === (i+1))?.SDGTitle}`}
             onClick={() => handleClick(i)}
           />
-          <p className={size == "big" ? "absolute left-2 top-1 text-white font-bold text-[14px]" : "hidden"}>{i + 1}</p>
+          <p className={size == "big" ? "absolute left-[6px] top-[0px] text-white font-bold text-[14px]" : "hidden"}>{i + 1}</p>
+            
+              </div>
+              </Tooltip>
+          </div>
         </div>
       ))}
     </div>

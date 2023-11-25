@@ -1,7 +1,7 @@
 // Tooltip.tsx
 import React from "react";
 import PropTypes from "prop-types";
-import { ITooltip } from "src/components/Tooltip/ITooltip.tsx";
+import { ITooltip } from "./ITooltip.tsx";
 import "./Tooltip.css";
 
 const Tooltip = ({ content, tooltipRef, disabled, children }: ITooltip) => {
