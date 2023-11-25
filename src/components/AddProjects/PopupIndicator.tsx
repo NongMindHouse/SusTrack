@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import { sdgColorList } from "@/utils/sdgColors";
 import indicatorData from "@/utils/Indicator.json";
 
@@ -42,26 +42,45 @@ const PopupIndicator:React.FC<Props> = ({activeTab,isOpen,onTabClick, onClose}) 
     return indicatorData.filter(item => item.TargetsNumber.toString() === target);
   };
 
-  const loadIndicator = (goal:number) => {  
+  const loadIndicator = (goal:number) => {
     const goalObject = searchIndicatorByGoal(goal+1);
-    console.log(`${goal+1}:${goalObject.length}`);
+    // console.log(`${goal+1}:${goalObject.length}`);
     const targets = Array.from(new Set(goalObject.map(item => item.TargetsNumber.toString())));
-    console.log(targets)
+    // console.log(targets)
+
+    // Array of indicator 
+    const [checkedIndicators, setCheckedIndicators] = useState<string[]>([]);
+
+    const handleCheckboxChange = (indicatorsNumber: string | number) => {
+      const stringIndicatorsNumber = indicatorsNumber.toString();
+      if (checkedIndicators.includes(stringIndicatorsNumber)) {
+        // Uncheck: Remove from array
+        setCheckedIndicators((prev) => prev.filter((num) => num !== stringIndicatorsNumber));
+      } else {
+        // Check: Add to array
+        setCheckedIndicators((prev) => [...prev, stringIndicatorsNumber]);
+      }
+      console.log('Checked Indicators:', checkedIndicators);
+    };
 
     return (
       <div>
         {targets.map((target) => (
-          <div>
+          <div >
             <p className="text-lg bg-gray-300 p-2 rounded-lg">
               {target + ")"} {goalObject.find(item => item.TargetsNumber.toString() === target)?.Targets}
             </p>
             {goalObject.filter(item => item.TargetsNumber.toString() === target).map((ind) => (
-              <div className="bg-gray-200 my-3 rounded-md mx-4 p-2
+              <div key={ind.IndicatorsNumber} className="bg-gray-200 my-3 rounded-md mx-4 p-2
                grid grid-cols-[5%_1fr]">
-                <input type="checkbox" className="mx-2 my-auto w-5 h-5 accent-green-600 cursor-pointer"></input>
+                <input type="checkbox"
+                className="mx-2 my-auto w-5 h-5 accent-green-600 cursor-pointer"
+                onChange={() => handleCheckboxChange(ind.IndicatorsNumber)}
+                  checked={checkedIndicators.includes(ind.IndicatorsNumber.toString())}
+                />
                 <p className="text-sm">
                   {ind.IndicatorsNumber + ")"} {ind.Indicators}
-                  </p>
+                </p>
               </div>
             ))
             }
