@@ -11,41 +11,41 @@ import {
   Legend,
 } from 'chart.js';
 
-
 ChartJS.register(
   CategoryScale,
   LinearScale,
   BarElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
 );
 
 interface BarPlotProps {
   data: {
     labels: string[];
+    datasets:{
+    label: string,
     values: number[];
+    colors: string[];
+    }[]
   };
+  width:number,
+  height:number,
 }
 
-const BarPlot: React.FC<BarPlotProps> = ({ data }) => {
+const BarPlot: React.FC<BarPlotProps> = ({ data, width, height }) => {
   const chartData = {
     labels: data.labels,
-    datasets: [
-      {
-        label: 'Bar Plot',
-        backgroundColor: 'rgba(75,192,192,0.4)',
-        borderColor: 'rgba(75,192,192,1)',
-        borderWidth: 1,
-        hoverBackgroundColor: 'rgba(75,192,192,0.6)',
-        hoverBorderColor: 'rgba(75,192,192,1)',
-        data: data.values,
-      },
-    ],
+    datasets: data.datasets.map((dataset) => ({
+      label: dataset.label,
+      data: dataset.values,
+      backgroundColor: dataset.colors,
+    })),
   };
 
   const chartOptions = {
     // indexAxis: 'y' as const,
+    maintainAspectRatio: false, // Disable the aspect ratio
     scales: {
       x: {
         beginAtZero: true,
@@ -57,9 +57,9 @@ const BarPlot: React.FC<BarPlotProps> = ({ data }) => {
   };
 
   return (
-  <div className="w-full h-full">
-    <Bar data={chartData} options={chartOptions} />
-  </div>
+  // <div className="w-full h-full">
+    <Bar width={`${width}px`} height={`${height}px`} data={chartData} options={chartOptions} />
+  // </div>
   );
 };
 
