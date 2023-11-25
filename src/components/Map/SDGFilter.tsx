@@ -8,6 +8,7 @@ type Props = {
 };
 
 const SDGFilter: React.FC<Props> = ({ handleClick, selectedSDG, size }) => {
+
   return (
     <div className="bg-gray-100 mx-auto mb-5 p-5 rounded-lg flex flex-wrap">
       {sdgColorList.map((color, i: number) => (
@@ -19,11 +20,6 @@ const SDGFilter: React.FC<Props> = ({ handleClick, selectedSDG, size }) => {
           <img
             key={i}
             src={`/images/sdgs/sdg-${i + 1}.svg`}
-            // className={
-            //   selectedSDG.includes(i) ?
-            //   "opacity-100 block w-[64px] h-[64px] rounded-sm p-3 m-1" :
-            //   "block w-[64px] h-[64px] rounded-sm p-3 m-1"
-            // }
             className={
               size == "big"
                 ? "block w-[64px] h-[64px] rounded-sm p-3 m-1"
@@ -37,6 +33,7 @@ const SDGFilter: React.FC<Props> = ({ handleClick, selectedSDG, size }) => {
               filter: selectedSDG.includes(i) ? "none" : "grayscale(60%)",
             }}
             alt={`SDG ${i}`}
+            title={`SDG ${i + 1}: More information goes here`}
             onClick={() => handleClick(i)}
           />
           <p className={size == "big" ? "absolute left-2 top-1 text-white font-bold text-[14px]" : "hidden"}>{i + 1}</p>

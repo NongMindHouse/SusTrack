@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Sidebar.css";
-import { sdgColorList } from "@/utils/sdgColors";
+// import { sdgColorList } from "@/utils/sdgColors";
 import SDGFilter from "./SDGFilter";
 import ProjectCardMap from "./ProjectCardMap";
 
