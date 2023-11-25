@@ -1,6 +1,7 @@
 import React, { useState, ChangeEvent } from "react";
 import "../Map/Sidebar.css";
 import { sdgColorList } from "@/utils/sdgColors";
+import SDGList from "../Map/SDGList";
 // import SDGFilter from "../Map/SDGFilter";
 // import ProjectCardMap from "../Map/ProjectCardMap";
 
@@ -61,7 +62,7 @@ const AddProjectSidebar: React.FC<Props> = ({ onSDGsClick }) => {
         <label className="block font-medium mb-3 ">
           <p className="text-center">รูปภาพกิจกรรม</p>
 
-          <div className="bg-gray-200 rounded-md p-2 mt-1 hover:bg-gray-300 hover:scale-[1.02] transition duration-200">
+          <div className="bg-gray-200 rounded-md p-2 mt-1 hover:bg-gray-300 hover:scale-[1.02] transition duration-200 hover:cursor-pointer">
               <input
                 id="upload"
                 type="file"
@@ -94,7 +95,10 @@ const AddProjectSidebar: React.FC<Props> = ({ onSDGsClick }) => {
           onClick={handleSDGsClick}
           style={{ cursor: "pointer" }}
           >
-            <p className="text-center"> SDGs </p>
+            <p className="text-center"> เพิ่ม SDGs </p>
+            <div className="flex w-full h-full bg-gray-200 rounded-lg">
+              <SDGList selectedSDG={[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]} size={"big"} />
+            </div>
           </div>
         </div>
         {/* ORGANIZATION */}

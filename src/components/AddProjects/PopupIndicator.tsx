@@ -185,7 +185,7 @@ const PopupIndicator:React.FC<Props> = ({activeTab,isOpen,onTabClick, onClose}) 
               {/* SUBMIT */}
               <div className="flex justify-end mt-4 gap-x-4">
                 <div
-                className="bg-red-600 text-white px-4 py-1 rounded-full hover:scale-105 hover:bg-red-500 cursor-pointer"
+                className=" text-gray-800 px-4 py-1 rounded-full hover:text-red-600 cursor-pointer hover:underline"
                 onClick={handleOverlayClick}
                 >
                   ยกเลิก
