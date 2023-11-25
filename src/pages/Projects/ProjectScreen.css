@@ -13,6 +13,7 @@
 @media screen and (max-width: 850px) {
     .AllContainer{
         flex-direction: column;
+        background-color: aquamarine;
     }
     .FilterSearch {
         width: 100%;

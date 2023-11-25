@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { Axios } from "@/utils/Axios";
 import { Project } from "@/types/Model";
 import ProjectList from "@/components/Projects/ProjectList";
-import "./ProjectSreen.css";
+import "./ProjectScreen.css";
 
 const Projects = () => {
   const [selectedSDGs, setSelectedSDGs] = useState<number[]>([]);
