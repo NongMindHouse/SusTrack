@@ -20,7 +20,7 @@ const SDGFilter: React.FC<Props> = ({ handleClick, selectedSDG, size }) => {
           key={i}
         >
           <div className="container">
-            <Tooltip disabled={false} content={`SDGs ${i+1}`}>
+            <Tooltip disabled={false} content={`SDGs ${i+1}) ${(indicatorData.find(item => item.SDGNumber === (i + 1))?.SDGTitle || '').substring(0, 30)}...`}>
               <div >
               <img
             key={i}
@@ -38,11 +38,11 @@ const SDGFilter: React.FC<Props> = ({ handleClick, selectedSDG, size }) => {
               filter: selectedSDG.includes(i) ? "none" : "grayscale(60%)",
             }}
             alt={`SDGs ${i+1}`}
-            title={`${indicatorData.find(item => item.SDGNumber === (i+1))?.SDGTitle}`}
+            title={`${(indicatorData.find(item => item.SDGNumber === (i + 1))?.SDGTitle || '')}`}
             onClick={() => handleClick(i)}
           />
           <p className={size == "big" ? "absolute left-[6px] top-[0px] text-white font-bold text-[14px]" : "hidden"}>{i + 1}</p>
-            
+
               </div>
               </Tooltip>
           </div>
