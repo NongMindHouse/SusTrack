@@ -166,7 +166,7 @@ const PopupIndicator:React.FC<Props> = ({activeTab,isOpen,onTabClick, onClose}) 
           </div>
           {/* CONTAINTER */}
           <form>
-          <div className="ml-8 mr-4 h-[500px] grid grid-rows-auto">
+          <div className="ml-8 mr-4 h-[500px] 2xl:h-[650px] grid grid-rows-auto">
               {/* GOAL TEXT */}
               <div className="">
                 <p className="text-2xl my-2">
