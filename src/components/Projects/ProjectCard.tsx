@@ -12,15 +12,15 @@ const ProjectCard: React.FC<Props> = ({ id, image, title, desc }) => {
 
   return (
     <div
-      className="max-w-sm bg-gray-100 shadow rounded-xl hover:cursor-pointer hover:border-lightblue hover:shadow-md hover:scale-[1.01] duration-100"
+      className="max-w-full h-[300px] flex flex-col bg-gray-100 shadow rounded-xl hover:cursor-pointer hover:border-lightblue hover:shadow-md hover:scale-[1.01] duration-100"
       onClick={Goto}
     >
-      <div className=" w-full h-[210px]">
+      <div className=" w-full h-[50%]">
         <img className="w-[100%] h-[100%] rounded-t-xl object-cover" src={image} alt="" />
       </div>
-      <div className="p-5">
-        <h5 className="mb-2 text-xl font-bold tracking-tight text-black ">{title}</h5>
-        <p className="mb-3 text-black whitespace-nowrap overflow-hidden text-ellipsis">{desc}</p>
+      <div className="p-3">
+        <h5 className="mb-1 text-xl font-bold tracking-tight text-black overflow-hidden line-clamp-2 text-ellipsis">{`${(title).substring(0, 50)}...`}</h5>
+        <p className="mb-2 text-black overflow-hidden line-clamp-2 text-ellipsis">{`${(desc).substring(0, 100)}...`}</p>
       </div>
     </div>
   );

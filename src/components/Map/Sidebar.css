@@ -1,10 +1,42 @@
-@media (min-width: 850px) {
+@media screen and (max-width: 4000px) {
   .sideBar {
     position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
-    width: 540px;
+    width: 450px;
+    background-color: rgba(138, 138, 138, 0.4);
+    padding: 20px;
+    box-shadow: -5px 0 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    backdrop-filter: blur(6px);
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .sideBar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 400px;
+    background-color: rgba(138, 138, 138, 0.4);
+    padding: 20px;
+    box-shadow: -5px 0 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    backdrop-filter: blur(6px);
+  }
+}
+
+
+@media screen and (max-width: 750px) {
+  .sideBar {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 300px;
     background-color: rgba(138, 138, 138, 0.4);
     padding: 20px;
     box-shadow: -5px 0 10px rgba(0, 0, 0, 0.1);

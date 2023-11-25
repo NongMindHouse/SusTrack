@@ -26,7 +26,7 @@ const Sidebar: React.FC<Props> = () => {
 
   return (
     <div className="sideBar">
-      <div className="pt-10 text-base">
+      <div className="pt-10 text-base ">
         {/* SDGs Filter */}
         <p className="text-lg">ตัวกรองผลลัพธ์การค้นหา SDGs</p>
         <SDGFilter handleClick={Test} selectedSDG={selectedSDGs} size="big"/>

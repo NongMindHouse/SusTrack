@@ -3,6 +3,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { Axios } from "@/utils/Axios";
 import { Project } from "@/types/Model";
 import ProjectList from "@/components/Projects/ProjectList";
+import "./ProjectSreen.css";
 
 const Projects = () => {
   const [selectedSDGs, setSelectedSDGs] = useState<number[]>([]);
@@ -36,11 +37,10 @@ const Projects = () => {
   };
   return (
     <div
-      className="px-4 pb-8 bg-[url('images/bangkok-map-blur.png')]
-    flex flex-row-reverse gap-x-4 w-full justify-center"
-    >
-      <div className="flex flex-col gap-y-5">
-        <div className="bg-white h-fit w-[350px] p-6 rounded-xl shadow-lg mt-6">
+      className="AllContainer h-full px-4 pb-8 bg-[url('images/bangkok-map-blur.png')]
+    flex flex-row-reverse gap-x-4 gap-y-2 w-full justify-center">
+      <div className="FilterSearch w-[50%] flex flex-col gap-y-5 items-center">
+        <div className="SearchBar bg-white h-fit w-[100%] p-6 rounded-xl shadow-lg mt-6">
           ตัวกรองการค้นหากิจกรรม
           <form>
             <div>
@@ -60,17 +60,19 @@ const Projects = () => {
             </button>
           </form>
         </div>
-        <div className="w-[350px]">
+        <div className="w-[100%]">
           <p>SDGs ที่เกี่ยวข้อง</p>
           <div className="">
             <SDGFilter handleClick={Test} selectedSDG={selectedSDGs} size="big" />
           </div>
         </div>
       </div>
-      <div className="lg:w-[1000px] bg-white rounded-b-xl shadow-lg">
-        <h1 className="pt-3 pl-4 text-lg font-bold">โครงการทั้งหมด</h1>
-        {projects ? <ProjectList projects={projects} /> : null}
+      <div className="PostContainer w-[100%] max-h-[700px] bg-white rounded-b-xl shadow-lg flex flex-col items-center">
+        <h1 className="pt-3 pl-4 text-lg font-bold text-start w-[100%]">โครงการทั้งหมด</h1>
+        <div className="GridPost grid grid-cols-4 w-[90%] gap-2 overflow-y-scroll">
+          {projects ? <ProjectList projects={projects} /> : null}
 
+        </div>
       </div>
     </div>
   );
