@@ -1,6 +1,5 @@
 import React from "react";
 import { sdgColorList } from "@/utils/sdgColors";
-import { blockQuote } from "discord.js";
 
 type Props = {
   selectedSDG: number[];
@@ -8,9 +7,10 @@ type Props = {
 };
 
 const SDGList: React.FC<Props> = ({ selectedSDG, size }) => {
+
   return (
     <div className="relative">
-      <div data-tooltip-target="tooltip-dark" className="flex gap-x-[3px] relative flex-wrap justify-center">
+      <div data-tooltip-target="tooltip-default" data-tooltip-placement="top" className="flex gap-x-[3px] relative flex-wrap">
         {selectedSDG.map((i: number) => (
           <img
             key={i}
@@ -28,8 +28,6 @@ const SDGList: React.FC<Props> = ({ selectedSDG, size }) => {
           />
           ))}
       </div>
-
-      
     </div>
 
   );

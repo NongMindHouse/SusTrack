@@ -28,7 +28,7 @@ const ProjectCardMap: React.FC<Props> = ({ id, image, title, desc, sdgs }) => {
       <div className="flex flex-col gap-y-2 p-3">
         <p className="text-[16px] font-bold leading-5">{title}</p>
         <p className="text-[14px] leading-4">{desc}</p>
-        <SDGList selectedSDG={sdgs} />
+        <SDGList selectedSDG={sdgs} size={""} />
       </div>
     </div>
   );
