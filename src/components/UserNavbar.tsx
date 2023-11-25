@@ -8,7 +8,7 @@ const UserNavbar: React.FC<Props> = ({ email, userName, profileUrl }) => {
     profileUrl = "/images/no_avatar.jpg";
   }
   return (
-    <div className="flex items-center hover:bg-lightblue hover:text-white px-3 py-1 bg-gray-200 rounded-full transition ease-linear duration-200 hover:scale-105">
+    <div className="flex items-center pr-2 py-1 rounded-full transition duration-100 hover:scale-105 cursor-pointer">
       <img src={profileUrl} className="h-10 w-10 rounded-full" referrerPolicy="no-referrer" />
     </div>
   );
