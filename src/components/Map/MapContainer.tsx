@@ -56,10 +56,11 @@ const MapContainer: React.FC = () => {
     } else if (viewport.zoom > 11.5) {
       setImgHeight("32px");
       setImgWidth("24px");
-    } else if (viewport.zoom > 10.5) {
-      setImgHeight("17px");
-      setImgWidth("12px");
     }
+    // else if (viewport.zoom > 10.5) {
+    //   setImgHeight("17px");
+    //   setImgWidth("12px");
+    // }
   };
 
   return (
