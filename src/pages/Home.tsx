@@ -20,6 +20,8 @@ const CoolQuote: React.FC = () => {
 }
 
 const Home: React.FC = () => {
+
+  
   return (
     <>
       <div className="flex flex-col">

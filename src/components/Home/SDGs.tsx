@@ -1,5 +1,5 @@
 import { sdgColorList } from "@/utils/sdgColors";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link} from "react-router-dom";
 
 const GoalLinks:React.FC = () =>{
@@ -34,9 +34,35 @@ const GoalLinks:React.FC = () =>{
 }
 
 const SDGs = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Adjust the scroll threshold as needed
+      const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+
+      // Calculate the position where the element should become visible
+      const triggerPosition = viewportHeight / 2;
+
+      // Calculate the current scroll position
+      const scrollPosition = window.scrollY;
+
+      setIsVisible(scrollPosition > triggerPosition);
+    };
+
+    // Attach the scroll event listener
+    window.addEventListener("scroll", handleScroll);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+  
   return (
     <div className="bg-navy py-12">
-      <div className="lg:flex justify-center items-center gap-x-16 p-6 ">
+      <div className={`lg:flex justify-center items-center gap-x-16 p-6
+      transition-transform duration-1000 ease-in-out transform ${isVisible ? "translate-y-0 opacity-[100%]" : "translate-y-10 opacity-[0%]"}`}>
         {/* SDGs */}
         <div className="text-white w-full lg:w-[700px]">
           <h1 className="text-5xl font-bold py-4">
