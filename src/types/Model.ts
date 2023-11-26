@@ -5,8 +5,8 @@ export interface Project {
   bannerUrl?: string;
   websiteUrl: string | "";
   selectedSDG: number;
-  latitude: number;
-  longitude: number;
+  latitude: string;
+  longitude: string;
   organization?: string;
   date?: Date | null;
   periodTime?: string;

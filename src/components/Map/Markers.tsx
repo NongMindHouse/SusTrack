@@ -10,33 +10,11 @@ interface Props {
 }
 
 const Markers: React.FC<Props> = ({ handleClickPopup, projects, imgHeight, imgWidth }) => {
-  const dummyProjects = [
-    {
-      title: "CPE",
-      image: "https://fastly.picsum.photos/id/658/536/354.jpg?hmac=lJsBY1i-cotZRX7y_Gs4NWkIaCtyhT3HhAeLnRpra8k",
-      desc: "ก๋วยเตี๋ยวไก่มะระ คือ ก๋วยเตี๋ยวยอดนิยมของคนไทย ด้วยรสชาติเนื้อไก่ตุ๋นและไก่ฉีกที่ชุ่มฉ่ำ",
-      selectedSDG: 2,
-      latitude: 13.6504405,
-      longitude: 100.4946602,
-    },
-    {
-      title: "Square",
-      image: "https://flowbite.com/docs/images/blog/image-1.jpg",
-      desc: "ก๋วยเตี๋ยวไก่มะระ คือ ก๋วยเตี๋ยวยอดนิยมของคนไทย ด้วยรสชาติเนื้อไก่ตุ๋นและไก่ฉีกที่ชุ่มฉ่ำ",
-      selectedSDG: 4,
-      latitude: 13.6512402,
-      longitude: 100.4936268,
-    },
-  ];
-
-  // if (!projects) projects = dummyProjects;
-  // projects.concat(dummyProjects)
-
   return projects.map((project, index) => (
     <Marker
       key={index}
-      latitude={project.latitude}
-      longitude={project.longitude}
+      latitude={Number(project.latitude)}
+      longitude={Number(project.longitude)}
       onClick={(e) => {
         e.originalEvent.stopPropagation();
         handleClickPopup(project);
