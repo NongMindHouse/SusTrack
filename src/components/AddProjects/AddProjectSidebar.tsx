@@ -88,7 +88,7 @@ const AddProjectSidebar: React.FC<Props> = ({ onSDGsClick }) => {
           >
             <p className="text-center"> เพิ่ม SDGs </p>
             <div className="flex w-full h-full bg-gray-200 rounded-lg">
-              <SDGList selectedSDG={[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]} size={"big"} />
+              {/* <SDGList selectedSDG={[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]} size={"big"} /> */}
             </div>
           </div>
         </div>

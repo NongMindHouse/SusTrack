@@ -25,8 +25,8 @@ const PopupIndicator:React.FC<Props> = ({activeTab,isOpen,onTabClick, onClose, o
     // Check if the clicked element is the overlay or its child elements
     if (event.target === overlayElement) {
       onClose();
-      // console.log("Submit : ", checkedIndicators);
-      // onSubmit(checkedIndicators);
+      console.log("Submit : ", checkedIndicators);
+      onSubmit(checkedIndicators);
     }
   };
 
@@ -48,12 +48,10 @@ const PopupIndicator:React.FC<Props> = ({activeTab,isOpen,onTabClick, onClose, o
     return indicatorData.filter(item => item.TargetsNumber.toString() === target);
   };
 
-  const loadIndicator = (goal:number) => {
+  const loadIndicator = (goal:number) =>  {
 
     const goalObject = searchIndicatorByGoal(goal+1);
-    // console.log(`${goal+1}:${goalObject.length}`);
     const targets = Array.from(new Set(goalObject.map(item => item.TargetsNumber.toString())));
-    // console.log(targets)
 
     // Array of indicator
     const [checkedIndicators, setCheckedIndicators] = useState<string[]>([]);
@@ -61,10 +59,8 @@ const PopupIndicator:React.FC<Props> = ({activeTab,isOpen,onTabClick, onClose, o
     const handleCheckboxChange = (indicatorsNumber: string | number) => {
       const stringIndicatorsNumber = indicatorsNumber.toString();
       if (checkedIndicators.includes(stringIndicatorsNumber)) {
-        // Uncheck: Remove from array
         setCheckedIndicators((prev) => prev.filter((num) => num !== stringIndicatorsNumber));
       } else {
-        // Check: Add to array
         setCheckedIndicators((prev) => [...prev, stringIndicatorsNumber]);
       }
       console.log('Checked Indicators:', checkedIndicators);
@@ -79,7 +75,7 @@ const PopupIndicator:React.FC<Props> = ({activeTab,isOpen,onTabClick, onClose, o
             </p>
             {goalObject.filter(item => item.TargetsNumber.toString() === target).map((ind) => (
               <div key={ind.IndicatorsNumber} className="bg-gray-200 my-3 rounded-md mx-4 p-2
-               grid grid-cols-[5%_1fr]">
+                grid grid-cols-[5%_1fr]">
                 <input type="checkbox"
                 className="mx-2 my-auto w-5 h-5 accent-green-600 cursor-pointer"
                 onChange={() => handleCheckboxChange(ind.IndicatorsNumber)}
