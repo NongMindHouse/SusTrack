@@ -21,11 +21,11 @@ const PopupIndicator:React.FC<Props> = ({activeTab,isOpen,onTabClick, onClose, o
 
   const handleOverlayClick = (event: React.MouseEvent<HTMLDivElement>) => {
     const overlayElement = event.currentTarget;
-  
+
     // Check if the clicked element is the overlay or its child elements
     if (event.target === overlayElement) {
       onClose();
-      console.log("Submit : "+checkedIndicators);
+      console.log("Submit : ", checkedIndicators);
       onSubmit(checkedIndicators);
     }
   };
@@ -49,12 +49,13 @@ const PopupIndicator:React.FC<Props> = ({activeTab,isOpen,onTabClick, onClose, o
   };
 
   const loadIndicator = (goal:number) => {
+
     const goalObject = searchIndicatorByGoal(goal+1);
     // console.log(`${goal+1}:${goalObject.length}`);
     const targets = Array.from(new Set(goalObject.map(item => item.TargetsNumber.toString())));
     // console.log(targets)
 
-    // Array of indicator 
+    // Array of indicator
     const [checkedIndicators, setCheckedIndicators] = useState<string[]>([]);
 
     const handleCheckboxChange = (indicatorsNumber: string | number) => {

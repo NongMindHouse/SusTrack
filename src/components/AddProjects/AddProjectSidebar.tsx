@@ -31,22 +31,6 @@ const AddProjectSidebar: React.FC<Props> = ({ onSDGsClick }) => {
     }
   };
 
-  // const Test = (i: number) => {
-  //   // Toggle Select
-
-  //   // if select => remove from selected
-  //   if (selectedSDGs.includes(i)) {
-  //     const deletedSelect = selectedSDGs.filter((select) => {
-  //       return select != i;
-  //     });
-  //     setSelectedSDGs(deletedSelect);
-  //   } else {
-  //     setSelectedSDGs([...selectedSDGs, i]);
-  //   }
-  //   console.log(selectedSDGs);
-  //   console.log("Click", i);
-  // };
-
   const handleIndicatorsSubmit = (checkedIndicators: string[]) => {
     // Do something with the submitted checkedIndicators array
     console.log("Submitted Indicators:", checkedIndicators);

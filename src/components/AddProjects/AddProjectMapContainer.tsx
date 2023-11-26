@@ -71,8 +71,9 @@ const AddProjectMapContainer: React.FC = () => {
         isOpen={isPopupOpen}
         activeTab={activeTab}
         onTabClick={handleTabClick}
-        onClose={handleClosePopup}
-      />
+        onClose={handleClosePopup} onSubmit={function (checkedIndicators: string[]): void {
+          throw new Error("Function not implemented.");
+        } }      />
     </div>
   );
 };
