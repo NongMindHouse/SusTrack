@@ -1,5 +1,5 @@
 import SDGFilter from "@/components/Map/SDGFilter.tsx";
-import React, { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Axios } from "@/utils/Axios";
 import { Project } from "@/types/Model";
 import ProjectList from "@/components/Projects/ProjectList";
@@ -61,7 +61,7 @@ const Projects = () => {
             </button>
           </form>
         </div>
-        
+
         <div className="w-[100%] SDGlist">
           <p>SDGs ที่เกี่ยวข้อง</p>
           <div className="">

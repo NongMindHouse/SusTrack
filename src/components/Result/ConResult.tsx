@@ -1,8 +1,6 @@
-import React from 'react';
 import BarPlot from './BarPlot';
 import DoughnutChart from './Doughnut';
 import { sdgColorList } from '@/utils/sdgColors';
-import PolarAreaChart from './PolarAreaChart';
 
 const ConResult = () => {
     const indicatorData = {
@@ -10,11 +8,13 @@ const ConResult = () => {
         values: [1611, 1762,2591,946,500,1471,1734,390,484,312,567,337,774,1217,1659,532,772],
         colors:sdgColorList
       };
+
     const dataDim = {
         labels: ['มิติด้านสังคม', 'มิติด้านเศรษฐกิจ', 'มิติด้านสิ่งแวดล้อม','มิติด้านสันติภาพและสถาบัน','มิติด้านหุ้นส่วนการพัฒนา'],
         values: [7410, 4598, 4684, 532, 772],
         colors:["rgba(117, 89, 235, 1)","rgba(89, 235, 173, 1)","rgba(235, 111, 90, 1)","rgba(235, 218, 89, 1)","rgba(70, 180, 235, 1)"],
       };
+
     const dataByYear = {
             labels: ['2019', '2020', '2021','2022','2023'],
             datasets:[
@@ -51,6 +51,7 @@ const ConResult = () => {
                             {/* <PolarAreaChart data={dataDim}/> */}
                         </div>
                     </div>
+                    
                     <div className="w-full h-full bg-gray-200 relative">
                         <p className='bg-gray-400 p-3 w-full text-center font-bold text-lg'>
                             ตารางจำนวนตัวชี้วัด SDGs เทียบกับเป้าหมายประจำปี 2019 - 2023

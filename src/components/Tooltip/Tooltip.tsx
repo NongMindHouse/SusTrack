@@ -1,5 +1,4 @@
 // Tooltip.tsx
-import React from "react";
 import PropTypes from "prop-types";
 import { ITooltip } from "./ITooltip.tsx";
 import "./Tooltip.css";
@@ -18,7 +17,7 @@ const Tooltip = ({ content, tooltipRef, disabled, children }: ITooltip) => {
 Tooltip.propTypes = {
   content: PropTypes.string.isRequired,
   tooltipRef: PropTypes.object,
-  disabled: PropTypes.bool.isRequired
+  disabled: PropTypes.bool.isRequired,
 };
 
 export default Tooltip;

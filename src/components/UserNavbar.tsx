@@ -3,7 +3,7 @@ import React from "react";
 
 type Props = Omit<AuthContextValue, "id" | "isAuthenticated">;
 
-const UserNavbar: React.FC<Props> = ({ email, userName, profileUrl }) => {
+const UserNavbar: React.FC<Props> = ({ profileUrl }) => {
   if (profileUrl === "") {
     profileUrl = "/images/no_avatar.jpg";
   }

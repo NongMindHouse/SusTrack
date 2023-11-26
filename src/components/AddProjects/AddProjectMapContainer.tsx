@@ -37,6 +37,7 @@ const AddProjectMapContainer: React.FC = () => {
   const handleClosePopup = () => {
     setIsPopupOpen(false);
   };
+  const onSubmit = () => {};
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((pos) => {
@@ -71,9 +72,9 @@ const AddProjectMapContainer: React.FC = () => {
         isOpen={isPopupOpen}
         activeTab={activeTab}
         onTabClick={handleTabClick}
-        onClose={handleClosePopup} onSubmit={function (checkedIndicators: string[]): void {
-          throw new Error("Function not implemented.");
-        } }      />
+        onClose={handleClosePopup}
+        onSubmit={onSubmit}
+      />
     </div>
   );
 };

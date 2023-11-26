@@ -14,7 +14,7 @@ const ProjectList: React.FC<Props> = ({ projects }) => {
           key={project.id}
           id={project.id}
           title={project.name}
-          image={project.bannerUrl}
+          image={project.bannerUrl ? project.bannerUrl : ""}
           desc={project.description}
         />
       ))}

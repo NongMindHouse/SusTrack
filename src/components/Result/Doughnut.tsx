@@ -1,7 +1,6 @@
 // DoughnutChart.js
 import React from 'react';
 import { Doughnut } from 'react-chartjs-2';
-import {sdgColorList} from '@/utils/sdgColors'
 import {
   Chart as ChartJS,
   ArcElement,
