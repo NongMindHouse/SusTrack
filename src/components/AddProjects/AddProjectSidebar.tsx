@@ -2,6 +2,7 @@ import React, { useState, ChangeEvent } from "react";
 import "../Map/Sidebar.css";
 import { sdgColorList } from "@/utils/sdgColors";
 import SDGList from "../Map/SDGList";
+import PopupIndicator from "./PopupIndicator";
 // import SDGFilter from "../Map/SDGFilter";
 // import ProjectCardMap from "../Map/ProjectCardMap";
 
@@ -45,6 +46,12 @@ const AddProjectSidebar: React.FC<Props> = ({ onSDGsClick }) => {
   //   console.log(selectedSDGs);
   //   console.log("Click", i);
   // };
+
+  const handleIndicatorsSubmit = (checkedIndicators: string[]) => {
+    // Do something with the submitted checkedIndicators array
+    console.log("Submitted Indicators:", checkedIndicators);
+    // You can set the state or perform any other actions in AddProjectSidebar
+  };
 
   const handleSDGsClick = () => {
     // Call the parent component's callback function

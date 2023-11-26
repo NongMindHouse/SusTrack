@@ -3,13 +3,17 @@ import { sdgColorList } from "@/utils/sdgColors";
 import indicatorData from "@/utils/Indicator.json";
 
 type Props = {
-  isOpen:boolean,
-  activeTab:number,
+  isOpen: boolean;
+  activeTab: number;
   onTabClick: (tabIndex: number) => void;
-  onClose: () => void; // Callback function to handle closing the popup
+  onClose: () => void;
+  onSubmit: (checkedIndicators: string[]) => void;
 };
 
-const PopupIndicator:React.FC<Props> = ({activeTab,isOpen,onTabClick, onClose}) => {
+const PopupIndicator:React.FC<Props> = ({activeTab,isOpen,onTabClick, onClose, onSubmit}) => {
+  const [checkedIndicators, setCheckedIndicators] = useState<string[]>([]);
+
+
   const Test = (i:number) => {
     onTabClick(i);
     console.log(activeTab)
@@ -21,6 +25,8 @@ const PopupIndicator:React.FC<Props> = ({activeTab,isOpen,onTabClick, onClose}) 
     // Check if the clicked element is the overlay or its child elements
     if (event.target === overlayElement) {
       onClose();
+      console.log("Submit : "+checkedIndicators);
+      onSubmit(checkedIndicators);
     }
   };
 
@@ -190,6 +196,7 @@ const PopupIndicator:React.FC<Props> = ({activeTab,isOpen,onTabClick, onClose}) 
                 >
                   ยกเลิก
                 </div>
+
                 <div
                 className="bg-green-600 text-white px-4 py-1 rounded-full hover:scale-105 hover:bg-green-500 cursor-pointer"
                 onClick={handleOverlayClick}
