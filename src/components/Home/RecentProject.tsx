@@ -47,7 +47,7 @@ const RecentProject = () => {
             forthVisible ? "scale-100 opacity-100" : "scale-[0.8] opacity-0"
           } `}
         >
-          <ProjectList projects={projects} />
+          <ProjectList projects={projects.slice(0, 8)} />
         </div>
         {/* Button */}
         <div className="text-center">

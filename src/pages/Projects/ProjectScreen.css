@@ -1,63 +1,63 @@
 @media screen and (min-width: 1100px) {
-    .AllContainer{
-        flex-direction: row-reverse;
-    }
-    .FilterSearch{
-        width: 50%;
-    }
-    .GridPost{
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
+  .AllContainer {
+    flex-direction: row-reverse;
+  }
+  .FilterSearch {
+    width: 50%;
+  }
+  .GridPost {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
 }
 
 @media screen and (max-width: 1100px) {
-    .AllContainer{
-        flex-direction: row-reverse;
-    }
-    .FilterSearch{
-        width: 50%;
-    }
-    .GridPost{
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
+  .AllContainer {
+    flex-direction: row-reverse;
+  }
+  .FilterSearch {
+    width: 50%;
+  }
+  .GridPost {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
 }
 
 @media screen and (max-width: 850px) {
-    .AllContainer{
-        flex-direction: column;
-    }
-    .FilterSearch {
-        width: 100%;
-        flex-direction: column-reverse;
-        margin-top: 0.45rem;
-        gap: 0;
-    }
-    .SearchBar{
-        margin-top: 0;
-    }
-    .PostContainer{
-        border-radius: 0.75rem;
-        min-height: 300px;
-        max-height: 600px;
-    }
-    .SDGlist{
-        display: block;
-    }
+  .AllContainer {
+    flex-direction: column;
+  }
+  .FilterSearch {
+    width: 100%;
+    flex-direction: column-reverse;
+    margin-top: 0.45rem;
+    gap: 0;
+  }
+  .SearchBar {
+    margin-top: 0;
+  }
+  .PostContainer {
+    border-radius: 0.75rem;
+    min-height: 300px;
+    max-height: 600px;
+  }
+  .SDGlist {
+    display: block;
+  }
 }
 
 @media screen and (max-width: 600px) {
-    .GridPost{
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-    .SDGlist{
-        display: none;
-    }
+  .GridPost {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  .SDGlist {
+    display: none;
+  }
 }
 @media screen and (max-width: 400px) {
-    .GridPost{
-        grid-template-columns: repeat(1, minmax(0, 1fr));
-    }
-    .SDGlist{
-        display: none;
-    }
+  .GridPost {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  .SDGlist {
+    display: none;
+  }
 }

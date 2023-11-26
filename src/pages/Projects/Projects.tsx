@@ -23,7 +23,7 @@ const Projects = () => {
     handleGetProject();
   }, [handleGetProject]);
 
-  const Test = (i: number) => {
+  const handleSelect = (i: number) => {
     // Toggle Select
     if (selectedSDGs.includes(i)) {
       const deletedSelect = selectedSDGs.filter((select) => {
@@ -33,12 +33,13 @@ const Projects = () => {
     } else {
       setSelectedSDGs([...selectedSDGs, i]);
     }
-    console.log(selectedSDGs);
+    // console.log(selectedSDGs);
   };
   return (
     <div
       className="AllContainer h-full px-4 pb-8 bg-[url('images/bangkok-map-blur.png')]
-    flex gap-x-4 gap-y-2 w-full justify-center">
+    flex gap-x-4 gap-y-2 w-full justify-center"
+    >
       <div className="FilterSearch flex flex-col gap-y-5 items-center">
         <div className="SearchBar bg-white h-fit w-[100%] p-6 rounded-xl shadow-lg mt-6">
           ตัวกรองการค้นหากิจกรรม
@@ -60,18 +61,18 @@ const Projects = () => {
             </button>
           </form>
         </div>
+        
         <div className="w-[100%] SDGlist">
           <p>SDGs ที่เกี่ยวข้อง</p>
           <div className="">
-            <SDGFilter handleClick={Test} selectedSDG={selectedSDGs} size="big" />
+            <SDGFilter handleClick={handleSelect} selectedSDG={selectedSDGs} size="big" />
           </div>
         </div>
       </div>
       <div className="PostContainer w-[100%] max-h-[700px] bg-white rounded-b-xl shadow-lg flex flex-col items-center">
         <h1 className="pt-3 pl-4 text-lg font-bold text-start w-[100%]">โครงการทั้งหมด</h1>
-        <div className="GridPost grid grid-cols-4 w-[90%] gap-2 overflow-y-scroll">
+        <div className="GridPost grid grid-cols-1 w-[90%] gap-2 overflow-y-scroll">
           {projects ? <ProjectList projects={projects} /> : null}
-
         </div>
       </div>
     </div>

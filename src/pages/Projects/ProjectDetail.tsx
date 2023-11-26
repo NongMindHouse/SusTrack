@@ -9,7 +9,6 @@ const ProjectDetail: React.FC = () => {
   const navigate = useNavigate();
   const params = useParams();
 
-  //   TODO: Fetch data here
   const handleGetProject = useCallback(async (): Promise<void> => {
     try {
       const res = await Axios.get(`/api/projects/${params.id}`);
@@ -53,6 +52,7 @@ const ProjectDetail: React.FC = () => {
             <p>วันที่เริ่มโครงการ: {projectDetail?.date?.toString()}</p>
             <p className="pl-20">ระยะเวลาโครงการ (วัน): - วัน</p>
           </div>
+
           {/* Description */}
           {projectDetail?.description ? (
             <p className="mt-5 mb-5" dangerouslySetInnerHTML={{ __html: projectDetail?.description }}></p>
@@ -81,6 +81,7 @@ const ProjectDetail: React.FC = () => {
               </Link>
             </div>
           </div>
+
           <div className="flex justify-between py-4">
             <p>โครงการอื่นๆ</p>
             <Link to="/projects" className="hover:underline">

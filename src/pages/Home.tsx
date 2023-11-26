@@ -9,7 +9,6 @@ const CoolQuote: React.FC = () => {
 
   useEffect(() => {
     const thirdScroll = () => {
-      // Adjust the scroll threshold as needed
       const viewportH = window.innerHeight || document.documentElement.clientHeight;
       const triggerPos = viewportH * 1.8;
       const scrollPos = window.scrollY;
@@ -27,7 +26,6 @@ const CoolQuote: React.FC = () => {
       className="bg-black h-[300px] bg-[url('images/greenheart.jpg')]
     flex flex-col items-center justify-center p-16 gap-y-6 bg-cover bg-center bg-blend-multiply bg-opacity-60"
     >
-      {/* <img src="" alt="" /> */}
       <div
         className={`text-white text-2xl items-center font-mono font-extrabold transition-all duration-500 ease-in-out ${
           coitVisible ? "scale-100 opacity-100" : "scale-125 opacity-0"

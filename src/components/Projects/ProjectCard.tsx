@@ -19,8 +19,11 @@ const ProjectCard: React.FC<Props> = ({ id, image, title, desc }) => {
         <img className="w-[100%] h-[100%] rounded-t-xl object-cover" src={image} alt="" />
       </div>
       <div className="p-3">
-        <h5 className="mb-1 text-xl font-bold tracking-tight text-black overflow-hidden line-clamp-2 text-ellipsis">{`${(title).substring(0, 50)}...`}</h5>
-        <p className="mb-2 text-black overflow-hidden line-clamp-2 text-ellipsis">{`${(desc).substring(0, 100)}...`}</p>
+        <h5 className="mb-1 text-xl font-bold tracking-tight text-black overflow-hidden line-clamp-2 text-ellipsis">{`${title.substring(
+          0,
+          55
+        )}...`}</h5>
+        <p className="mb-2 text-black overflow-hidden line-clamp-1 text-ellipsis">{`${desc.substring(0, 100)}...`}</p>
       </div>
     </div>
   );
