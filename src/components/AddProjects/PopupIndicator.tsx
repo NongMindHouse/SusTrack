@@ -25,8 +25,8 @@ const PopupIndicator:React.FC<Props> = ({activeTab,isOpen,onTabClick, onClose, o
     // Check if the clicked element is the overlay or its child elements
     if (event.target === overlayElement) {
       onClose();
-      console.log("Submit : ", checkedIndicators);
-      onSubmit(checkedIndicators);
+      // console.log("Submit : ", checkedIndicators);
+      // onSubmit(checkedIndicators);
     }
   };
 
