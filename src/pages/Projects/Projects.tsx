@@ -38,8 +38,8 @@ const Projects = () => {
   return (
     <div
       className="AllContainer h-full px-4 pb-8 bg-[url('images/bangkok-map-blur.png')]
-    flex flex-row-reverse gap-x-4 gap-y-2 w-full justify-center">
-      <div className="FilterSearch w-[50%] flex flex-col gap-y-5 items-center">
+    flex gap-x-4 gap-y-2 w-full justify-center">
+      <div className="FilterSearch flex flex-col gap-y-5 items-center">
         <div className="SearchBar bg-white h-fit w-[100%] p-6 rounded-xl shadow-lg mt-6">
           ตัวกรองการค้นหากิจกรรม
           <form>
@@ -60,7 +60,7 @@ const Projects = () => {
             </button>
           </form>
         </div>
-        <div className="w-[100%]">
+        <div className="w-[100%] SDGlist">
           <p>SDGs ที่เกี่ยวข้อง</p>
           <div className="">
             <SDGFilter handleClick={Test} selectedSDG={selectedSDGs} size="big" />
