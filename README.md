@@ -1,8 +1,7 @@
 <div align="center">
   <h1>🌍SusTrack</h1>
   <p>Public SDGs Activity Monitoring Platform</p>
-  <img src="./.github/sustrack-logo.png" alt="sustrack logo">
-  <img src="./.github/cityhack-logo.png" alt="cityhack logo">
+  <img width="500px" src="./.github/cityhack-logo.png" alt="cityhack logo">
 </div>
 
 ## ⚙️ Setup
