@@ -40,27 +40,19 @@ const MapContainer: React.FC = () => {
   }, [handleGetProject]);
 
   const handleClickPopup = (project: Project) => {
+    setViewport({ latitude: Number(project.latitude), longitude: Number(project.longitude), zoom: 13 });
     setPopupInfo(project);
   };
 
   const onChangeZoom = () => {
+    // console.log(viewport.zoom);
     if (viewport.zoom > 15.5) {
       setImgHeight("60px");
       setImgWidth("40px");
     } else if (viewport.zoom > 14.5) {
       setImgHeight("50px");
       setImgWidth("35px");
-    } else if (viewport.zoom > 12.5) {
-      setImgHeight("44px");
-      setImgWidth("30px");
-    } else if (viewport.zoom > 11.5) {
-      setImgHeight("32px");
-      setImgWidth("24px");
     }
-    // else if (viewport.zoom > 10.5) {
-    //   setImgHeight("17px");
-    //   setImgWidth("12px");
-    // }
   };
 
   return (
