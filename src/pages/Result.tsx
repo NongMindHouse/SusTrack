@@ -1,9 +1,7 @@
 import React from "react";
 import ConResult from "@/components/Result/ConResult";
 
-type Props = {};
-
-const Result: React.FC<Props> = ({}) => {
+const Result: React.FC = () => {
   return (
     <>
       <div className="flex flex-col">

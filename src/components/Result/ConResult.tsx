@@ -35,7 +35,7 @@ const ConResult = () => {
         <div className="bg-gray-50 relative" style={{ height: "100%", width: "100%" }}>
             {/* Top container */}
             <div className="h-fit w-full bg-white">
-                <div className="w-full h-fit grid grid-cols-[40%_1fr]">
+                <div className="w-full h-fit grid md:grid-cols-[40%_1fr]">
                     <div className="w-full h-full bg-white flex flex-col items-center justify-start gap-y-10">
                         <p className='bg-gray-300 p-3 w-full text-center font-bold text-lg'>
                             ข้อมูลตัวชี้วัด SDGs ประจำปี 2023

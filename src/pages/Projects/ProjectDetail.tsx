@@ -1,3 +1,4 @@
+import Loading from "@/components/Loading";
 import ProjectCard from "@/components/Projects/ProjectCard";
 import { Project } from "@/types/Model";
 import { Axios } from "@/utils/Axios";
@@ -6,22 +7,29 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 
 const ProjectDetail: React.FC = () => {
   const [projectDetail, setProjectDetail] = useState<Project>();
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   const params = useParams();
 
   const handleGetProject = useCallback(async (): Promise<void> => {
     try {
       const res = await Axios.get(`/api/projects/${params.id}`);
+
       if (res.status === 200) {
         setProjectDetail({ ...res.data.data });
       }
-    } catch (err) {}
+      setLoading(false);
+    } catch (err) {
+      console.log(err);
+      setLoading(false);
+    }
   }, []);
 
   useEffect(() => {
     handleGetProject();
   }, [handleGetProject]);
 
+  if (loading) return <Loading />;
   return (
     <div className="flex justify-center w-screen bg-white bg-[url('/images/bangkok-map-blur.png')]">
       <div className="bg-gray-100 relative overflow-hidden rounded-b-2xl w-[60em] mb-6 shadow-xl">

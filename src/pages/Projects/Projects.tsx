@@ -13,7 +13,7 @@ const Projects = () => {
     try {
       const res = await Axios.get(`/api/projects`);
       if (res.status === 200) {
-        console.log(res.data.data);
+        // console.log(res.data.data);
         setProjects(res.data.data);
       }
     } catch (err) {}

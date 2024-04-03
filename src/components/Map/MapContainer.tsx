@@ -32,7 +32,9 @@ const MapContainer: React.FC = () => {
         console.log(res.data.data);
         setProjects(res.data.data);
       }
-    } catch (err) {}
+    } catch (err) {
+      console.log(err);
+    }
   }, []);
 
   useEffect(() => {
